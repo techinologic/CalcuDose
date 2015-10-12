@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CalcuDose</string>
+    <string name="etxtBG">Enter BG</string>
+    <string name="btnCalculate">Calculate Dose</string>
+    <string name="btnLog">Log Event</string>
+    <string name="txtvRatios">Current Ratios</string>
+</resources>
