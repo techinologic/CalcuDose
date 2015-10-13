@@ -12,11 +12,10 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/etxtBG"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
         android:hint="@string/etxtBG"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
