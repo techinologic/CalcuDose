@@ -74,5 +74,12 @@
     <string name="btnLogBloodGlucose">Log Blood Glucose</string>
     <string name="btnViewLogs">View Logs</string>
     <string name="btnSettings">Settings</string>
+    <string name="txt_settings_targetBloodGlucose">Target Blood Glucose :</string>
+    <string name="txt_settings_insulinSensitivityFactor">Insulin Sensitivity Factor :</string>
+    <string name="txt_settings_insulinToCarbRatio">Insulin to Carbohydrate Ratio :</string>
+    <string name="btn_settings_save">Save Values</string>
+    <string name="etxt_insulinSensitivityFactor"></string>
+    <string name="etxt_tagetBloodGlucose"></string>
+    <string name="etxt_insulinToCarbRatio"></string>
 
 </resources>
