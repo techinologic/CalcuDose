@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
-
-    double bgResult;
-
+public class Correction extends AppCompatActivity {
+    int bloodGlucose;
+    double doseResult;
+    int insulinToCarbRatio;
+    int insulinSensitivityFactor = 70;
+    int targetBloodSugar = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +22,25 @@ public class MainActivity extends AppCompatActivity {
         final EditText etxtBG = (EditText)findViewById(R.id.etxtBG);
         Button calculateDoseBtn = (Button) findViewById(R.id.btnCalculate);
 
-
         calculateDoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                bgResult = Double.parseDouble(etxtBG.getText().toString());
+                bloodGlucose = Integer.parseInt(etxtBG.getText().toString());
+                doseResult = Double.parseDouble(etxtBG.getText().toString());
+                doseResult = (doseResult - targetBloodSugar) / insulinSensitivityFactor;
 
-
-                Intent intent = new Intent(MainActivity.this, DoseResults.class);
+                Intent intent = new Intent(Correction.this, DoseResults.class);
                 Bundle bundle = new Bundle();
-                bundle.putDouble("BG", bgResult);
+                bundle.putDouble("BG", doseResult);
+                intent.putExtras(bundle);
+
+
+                bundle.putInt("sugar", bloodGlucose);
+                intent.putExtras(bundle);
+
+
+                bundle.putInt("target", targetBloodSugar);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
@@ -41,4 +51,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public int getBloodGlucose(){
+        return bloodGlucose;
+    }
 }
+

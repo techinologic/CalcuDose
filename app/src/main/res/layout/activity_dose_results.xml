@@ -10,18 +10,35 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/txtvResults"
+        android:id="@+id/txtvBG"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtvResults"
+        android:textSize="20sp"
+        android:layout_below="@+id/txtvBG"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtvTarget"
+        android:layout_below="@+id/txtvResults"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnLog"
         android:id="@+id/btnLog"
+        android:textSize="30sp"
         android:layout_below="@+id/txtvResults"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
 </RelativeLayout>
