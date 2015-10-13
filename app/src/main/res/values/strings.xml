@@ -64,5 +64,15 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="imgBtnLogFood">Log Food Image Button</string>
+    <string name="title_activity_log_bg">LogBG</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_log_food">Log Food</string>
+    <string name="title_activity_view_logs">View Logs</string>
+    <string name="btnLogFood">Log Food</string>
+    <string name="btnLogBloodGlucose">Log Blood Glucose</string>
+    <string name="btnViewLogs">View Logs</string>
+    <string name="btnSettings">Settings</string>
 
 </resources>

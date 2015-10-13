@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 public class Menu extends AppCompatActivity {
 
@@ -14,11 +13,38 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        ImageButton imgBtnLogFood = (ImageButton)findViewById(R.id.imgBtnLogFood);
-        imgBtnLogFood.setOnClickListener(new View.OnClickListener() {
+        Button btnLogFood = (Button)findViewById(R.id.btnLogFood);
+        Button btnLogBG = (Button)findViewById(R.id.btnLogBloodGlucose);
+        Button btnLog = (Button)findViewById(R.id.btnViewLogs);
+        Button btnSettings = (Button)findViewById(R.id.btnSettings);
+
+        btnLogFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Menu.this, Correction.class));
+                startActivity(new Intent(Menu.this, LogFood.class));
+            }
+        });
+
+        btnLogBG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Menu.this, LogBloodGlucose.class));
+            }
+        });
+
+        btnLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Menu.this, ViewLogs.class));
+            }
+        });
+
+
+
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Menu.this, Settings.class));
             }
         });
 

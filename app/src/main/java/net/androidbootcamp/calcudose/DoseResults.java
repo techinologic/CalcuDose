@@ -28,7 +28,6 @@ public class DoseResults extends AppCompatActivity {
 
 
         txtvBG.setText("Blood glucose of " + sugar + "mg/dL needs ");
-        //txtvResults.setText(Double.toString(result)+ " units" );
         txtvResults.setText(units.format(result) + " units" );
         txtvTarget.setText(" to be on target blood glucose of " + target +" mg/dL.");
 
