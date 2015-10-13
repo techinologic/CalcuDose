@@ -17,10 +17,10 @@ public class Correction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_correction);
 
         final EditText etxtBG = (EditText)findViewById(R.id.etxtBG);
-        Button calculateDoseBtn = (Button) findViewById(R.id.btnCalculate);
+        Button calculateDoseBtn = (Button)findViewById(R.id.btnCalculate);
 
         calculateDoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
