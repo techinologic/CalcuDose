@@ -18,7 +18,7 @@
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="160sp"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
         android:text="Recent"
         android:id="@+id/btnFoodRecent"
         android:layout_below="@+id/searchView"
@@ -27,7 +27,7 @@
 
     <Button
         android:layout_width="160sp"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
         android:text="My Foods"
         android:id="@+id/btnFoodMyFoods"
         android:layout_alignTop="@+id/btnFoodRecent"
@@ -36,10 +36,21 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="300sp"
         android:id="@+id/foodList"
         android:layout_below="@+id/btnFoodRecent"
         android:layout_centerHorizontal="true"
         android:choiceMode="singleChoice"
-        android:entries="@id/foodList" />
+        android:entries="@array/foodList"
+        android:clickable="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/servingSpinner"
+        android:layout_below="@+id/foodList"
+        android:layout_alignRight="@+id/btnFoodMyFoods"
+        android:layout_alignEnd="@+id/btnFoodMyFoods"
+        android:spinnerMode="dialog" />
+
 </RelativeLayout>

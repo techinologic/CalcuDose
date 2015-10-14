@@ -78,6 +78,7 @@
     <string name="txt_settings_insulinSensitivityFactor">Insulin Sensitivity Factor :</string>
     <string name="txt_settings_insulinToCarbRatio">Insulin to Carbohydrate Ratio :</string>
     <string name="btn_settings_save">Save Values</string>
+
     <string name="etxt_insulinSensitivityFactor"></string>
     <string name="etxt_tagetBloodGlucose"></string>
     <string name="etxt_insulinToCarbRatio"></string>
@@ -85,8 +86,20 @@
     <string name="etxt_cv_insulinSensitivityFactor"></string>
     <string name="txt_cv_targetBloodGlucose"></string>
 
+    <string name="currentTarget"></string>
+    <string name="currentIsf"></string>
+    <string name="currentRatio"></string>
+
+
+
     <string-array name="foodList">
-        <item>Egg</item>
-    </string-array>
+        <item>Hormel Black Label Maple Bacon</item>
+        <item>Banana</item>
+        <item>Horizon Organic Whole Milk</item>
+        <item>Large Egg</item>
+        <item>Nature"'"s Own ButterBread</item>
+        </string-array>
+
+
 
 </resources>
