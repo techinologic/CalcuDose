@@ -30,34 +30,35 @@
         android:layout_height="wrap_content"
         android:text="@string/txtvRatios"
         android:id="@+id/txtvRatios"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/btnCalculate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="174dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView2"
+        android:text="@string/txt_settings_targetBloodGlucose"
+        android:id="@+id/txt_settings_targetBloodGlucose"
         android:layout_below="@+id/txtvRatios"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:text="@string/txt_settings_insulinSensitivityFactor"
+        android:id="@+id/txt_settings_insulinSensitivityFactor"
+        android:layout_below="@+id/txt_settings_targetBloodGlucose"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:text="@string/txt_settings_insulinToCarbRatio"
+        android:id="@+id/txt_settings_insulinToCarbRatio"
+        android:layout_below="@+id/txt_settings_insulinSensitivityFactor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

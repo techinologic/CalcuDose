@@ -3,6 +3,8 @@ package net.androidbootcamp.calcudose;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -18,6 +20,8 @@ public class DoseResults extends AppCompatActivity {
         TextView txtvBG = (TextView)findViewById(R.id.txtvBG);
         TextView txtvTarget = (TextView)findViewById(R.id.txtvTarget);
 
+
+
         Bundle bundle = getIntent().getExtras();
         double result = bundle.getDouble("BG");
         int sugar = bundle.getInt("sugar");
@@ -25,18 +29,17 @@ public class DoseResults extends AppCompatActivity {
 
         DecimalFormat units = new DecimalFormat("##,###.##");
 
-
-
         txtvBG.setText("Blood glucose of " + sugar + "mg/dL needs ");
-        txtvResults.setText(units.format(result) + " units" );
-        txtvTarget.setText(" to be on target blood glucose of " + target +" mg/dL.");
+        txtvResults.setText(units.format(result));
+        txtvTarget.setText("units of insulin to be on target blood glucose of " + target +" mg/dL.");
 
-
-
-
-
-
-
+        Button logEvent = (Button)findViewById(R.id.btnLog);
+        logEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DoseResults.this, ViewLogs.class));
+            }
+        });
 
 
 

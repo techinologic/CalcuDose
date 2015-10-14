@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/txtvResults"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:layout_below="@+id/txtvBG"
         android:layout_centerHorizontal="true" />
 

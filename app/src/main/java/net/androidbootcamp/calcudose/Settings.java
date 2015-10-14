@@ -44,16 +44,17 @@ public class Settings extends AppCompatActivity {
                 TextView currentIsf = (TextView)findViewById(R.id.currentIsf);
                 TextView currentRatio = (TextView)findViewById(R.id.currentRatio);
 
-                currentTarget.setText(newTarget);
-                currentIsf.setText(newIsf);
-                currentRatio.setText(newRatio);
-
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
                 editor.putString(Target, newTarget);
                 editor.putString(Isf, newIsf);
                 editor.putString(IToCarbRatio, newRatio);
                 editor.commit();
+
+                currentTarget.setText(newTarget);
+                currentIsf.setText(newIsf);
+                currentRatio.setText(newRatio);
+
                 Toast.makeText(Settings.this, "New Values Saved", Toast.LENGTH_LONG).show();
             }
         });
