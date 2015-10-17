@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 public class DoseResults extends AppCompatActivity {
-    double resultUnit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +19,14 @@ public class DoseResults extends AppCompatActivity {
         TextView txtvBG = (TextView)findViewById(R.id.txtvBG);
         TextView txtvTarget = (TextView)findViewById(R.id.txtvTarget);
 
-
-
         Bundle bundle = getIntent().getExtras();
         double result = bundle.getDouble("BG");
         int sugar = bundle.getInt("sugar");
         int target = bundle.getInt("target");
 
-        DecimalFormat units = new DecimalFormat("##,###.##");
+        DecimalFormat units = new DecimalFormat("###.##");
 
-        txtvBG.setText("Blood glucose of " + sugar + "mg/dL needs ");
+        txtvBG.setText("Recommended dose for " + sugar + " mg/dL blood glucose level is ");
         txtvResults.setText(units.format(result));
         txtvTarget.setText("units of insulin to be on target blood glucose of " + target +" mg/dL.");
 

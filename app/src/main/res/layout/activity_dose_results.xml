@@ -22,7 +22,8 @@
         android:id="@+id/txtvResults"
         android:textSize="30sp"
         android:layout_below="@+id/txtvBG"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"

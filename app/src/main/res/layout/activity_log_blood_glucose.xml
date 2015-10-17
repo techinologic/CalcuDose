@@ -61,4 +61,31 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvCurrentTarget"
+        android:id="@+id/tvCurrentTarget"
+        android:layout_above="@+id/txt_settings_insulinSensitivityFactor"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvCurrentIsf"
+        android:id="@+id/tvCurrentIsf"
+        android:layout_alignBottom="@+id/txt_settings_insulinSensitivityFactor"
+        android:layout_alignRight="@+id/tvCurrentTarget"
+        android:layout_alignEnd="@+id/tvCurrentTarget" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvCurrentRatio"
+        android:id="@+id/tvCurrentRatio"
+        android:layout_alignBottom="@+id/txt_settings_insulinToCarbRatio"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

@@ -90,6 +90,9 @@
     <string name="currentIsf"></string>
     <string name="currentRatio"></string>
 
+    <string name="tvCurrentTarget"></string>
+    <string name="tvCurrentIsf"></string>
+    <string name="tvCurrentRatio"></string>
 
 
     <string-array name="foodList">
