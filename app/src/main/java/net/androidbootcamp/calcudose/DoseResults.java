@@ -15,8 +15,9 @@ public class DoseResults extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dose_results);
-        TextView txtvResults = (TextView)findViewById(R.id.txtvResults);
-        TextView txtvBG = (TextView)findViewById(R.id.txtvBG);
+
+        TextView txtvResults = (TextView)findViewById(R.id.txtvResults2);
+        TextView txtvBG = (TextView)findViewById(R.id.txtvBG2);
         TextView txtvTarget = (TextView)findViewById(R.id.txtvTarget);
 
         Bundle bundle = getIntent().getExtras();
