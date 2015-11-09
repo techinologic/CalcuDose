@@ -37,6 +37,22 @@ public class LogFood extends AppCompatActivity {
             }
         });
 
+        Button btnSavedFoods = (Button)findViewById(R.id.btn_savedFoods);
+        btnSavedFoods.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LogFood.this, FoodDataListActivity.class));
+            }
+        });
+
+
+        Button btnSearchFood = (Button)findViewById(R.id.btn_searchFood);
+        btnSearchFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LogFood.this, SearchFood.class));
+            }
+        });
 
 
 
