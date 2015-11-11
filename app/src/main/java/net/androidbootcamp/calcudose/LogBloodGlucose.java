@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.annotation.Target;
+import java.math.BigDecimal;
 
 public class LogBloodGlucose extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class LogBloodGlucose extends AppCompatActivity {
     double doseResult;
     int insulinSensitivityFactor;
     int targetBloodSugar;
+    final double ROUNDOFF = 0.5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,27 +47,36 @@ public class LogBloodGlucose extends AppCompatActivity {
 
                 targetBloodSugar = Integer.parseInt(settings.getString("Target", "Not set"));
                 insulinSensitivityFactor = Integer.parseInt(settings.getString("Isf", "Not set"));
-                bloodGlucose = Integer.parseInt(etxtBG.getText().toString());
 
-                doseResult = Double.parseDouble(etxtBG.getText().toString());
-                doseResult = (doseResult - targetBloodSugar) / insulinSensitivityFactor;
+                if(etxtBG.getText().toString().equals(null)||etxtBG.getText().toString().equals("")){
+                    Toast.makeText(LogBloodGlucose.this, "Please enter a valid blood glucose value", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    bloodGlucose = Integer.parseInt(etxtBG.getText().toString());
+                    doseResult = Double.parseDouble(etxtBG.getText().toString());
+                    doseResult = (doseResult - targetBloodSugar) / insulinSensitivityFactor;
 
+                    if(doseResult<0){
+                        doseResult=0;
+                    }else {
+                        doseResult = ((double)(long)(doseResult*20+ROUNDOFF)) / 20;
+                    }
 
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs
 
-                SharedPreferences.Editor editor = settings.edit();
-                editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs
+                    Intent intent = new Intent(LogBloodGlucose.this, DoseResults.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putDouble("BG", doseResult);
+                    intent.putExtras(bundle);
 
-                Intent intent = new Intent(LogBloodGlucose.this, DoseResults.class);
-                Bundle bundle = new Bundle();
-                bundle.putDouble("BG", doseResult);
-                intent.putExtras(bundle);
+                    bundle.putInt("sugar", bloodGlucose);
+                    intent.putExtras(bundle);
 
-                bundle.putInt("sugar", bloodGlucose);
-                intent.putExtras(bundle);
-
-                bundle.putInt("target", targetBloodSugar);
-                intent.putExtras(bundle);
-                startActivity(intent);
+                    bundle.putInt("target", targetBloodSugar);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
             }
         });
     }
