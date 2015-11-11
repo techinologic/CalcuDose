@@ -2,8 +2,8 @@ package net.androidbootcamp.calcudose;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,7 +15,6 @@ public class SearchFood extends AppCompatActivity {
     FoodDbHelper foodDbHelper;
     SQLiteDatabase sqLiteDatabase;
     String search_name;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +31,9 @@ public class SearchFood extends AppCompatActivity {
         display_carbs.setVisibility(View.GONE);
         display_fat.setVisibility(View.GONE);
         display_protein.setVisibility(View.GONE);
-
     }
 
-    public void searchFood(View view){
+    public void searchFood(View view) {
 
         search_name = Search_name.getText().toString();
 
@@ -43,7 +41,7 @@ public class SearchFood extends AppCompatActivity {
         sqLiteDatabase = foodDbHelper.getReadableDatabase();
         Cursor cursor = foodDbHelper.getFood(search_name, sqLiteDatabase);
 
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             String NAME = cursor.getString(0);
             String CARBS = cursor.getString(1);
             String FAT = cursor.getString(2);
@@ -58,7 +56,6 @@ public class SearchFood extends AppCompatActivity {
             display_carbs.setVisibility(View.VISIBLE);
             display_fat.setVisibility(View.VISIBLE);
             display_protein.setVisibility(View.VISIBLE);
-
         }
     }
 }
