@@ -49,7 +49,8 @@ public class LogBloodGlucose extends AppCompatActivity {
                 insulinSensitivityFactor = Integer.parseInt(settings.getString("Isf", "Not set"));
 
                 if(etxtBG.getText().toString().equals(null)||etxtBG.getText().toString().equals("")){
-                    Toast.makeText(LogBloodGlucose.this, "Please enter a valid blood glucose value", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LogBloodGlucose.this, "Please enter a valid blood glucose value",
+                            Toast.LENGTH_LONG).show();
                 }
                 else {
                     bloodGlucose = Integer.parseInt(etxtBG.getText().toString());

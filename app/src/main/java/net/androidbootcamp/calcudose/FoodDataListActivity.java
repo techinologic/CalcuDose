@@ -1,10 +1,13 @@
 package net.androidbootcamp.calcudose;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class FoodDataListActivity extends AppCompatActivity {
@@ -30,7 +33,6 @@ public class FoodDataListActivity extends AppCompatActivity {
 
         if(cursor.moveToFirst()){
             do{
-
                 String name, servings, carbs, fat, protein;
                 name = cursor.getString(0);
                 servings = cursor.getString(1);
@@ -44,6 +46,19 @@ public class FoodDataListActivity extends AppCompatActivity {
 
             }while (cursor.moveToNext());
         }
+        listView.setOnItemClickListener(new ListView.OnItemClickListener(){
+            @Override
+                    public void onItemClick(AdapterView<?> a, View v, int i, long l){
+                Intent mainIntent = new Intent(FoodDataListActivity.this, Servings.class);
+                startActivity(mainIntent);
+            }
+        });
 
     }
+    public void goToServings(){
+        startActivity(new Intent(FoodDataListActivity.this, Servings.class));
+    }
+
+
+
 }

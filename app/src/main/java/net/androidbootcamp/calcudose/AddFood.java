@@ -38,6 +38,6 @@ public class AddFood extends AppCompatActivity {
         foodDbHelper = new FoodDbHelper(context);
         sqLiteDatabase = foodDbHelper.getWritableDatabase();
         foodDbHelper.addFood(name, servings, carb, fat, protein, sqLiteDatabase);
-        Toast.makeText(getBaseContext(), "Data Saved", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Food Saved", Toast.LENGTH_LONG).show();
     }
 }
