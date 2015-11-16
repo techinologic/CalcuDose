@@ -11,12 +11,24 @@ public class DataProvider {
     private String fat;
     private String protein;
 
+    private String bg;
+    private String dose;
+    private String date;
+
+
     public DataProvider(String name, String servings, String carbs, String fat, String protein){
         this.name = name;
         this.servings = servings;
         this.carbs = carbs;
         this.fat = fat;
         this.protein = protein;
+    }
+
+    public DataProvider(String name, String bg, String dose, String date){
+        this.name = name;
+        this.bg = bg;
+        this.dose = dose;
+        this.date = date;
     }
 
     public String getName() {
@@ -57,5 +69,29 @@ public class DataProvider {
 
     public void setProtein(String protein) {
         this.protein = protein;
+    }
+
+    public String getBg() {
+        return bg;
+    }
+
+    public void setBg(String bg) {
+        this.bg = bg;
+    }
+
+    public String getDose() {
+        return dose;
+    }
+
+    public void setDose(String dose) {
+        this.dose = dose;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

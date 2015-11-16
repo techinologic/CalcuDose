@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MenuMenu extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,30 +21,31 @@ public class MenuMenu extends AppCompatActivity {
         btnLogFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuMenu.this, LogFood.class));
+                startActivity(new Intent(MainMenu.this, LogFood.class));
             }
         });
 
         btnLogBG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuMenu.this, LogBloodGlucose.class));
+                startActivity(new Intent(MainMenu.this, LogBloodGlucose.class));
             }
         });
 
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuMenu.this, ViewLogs.class));
+                startActivity(new Intent(MainMenu.this, ViewLogs.class));
             }
         });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuMenu.this, Settings.class));
+                startActivity(new Intent(MainMenu.this, Settings.class));
             }
         });
 
     }
+
 }

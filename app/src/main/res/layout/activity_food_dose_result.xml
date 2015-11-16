@@ -38,10 +38,9 @@
         android:layout_height="wrap_content"
         android:text="@string/btnLog"
         android:id="@+id/btnLog"
-        android:textSize="30sp"
-        android:layout_below="@+id/txtvResults2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp" />
+        android:textSize="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

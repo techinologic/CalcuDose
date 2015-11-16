@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_log_food_name"
+        android:text="food name"
+        android:gravity="left"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_log_bg"
+        android:text="BG"
+        android:gravity="center"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_log_dose"
+        android:text="Dose"
+        android:gravity="center"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_log_date"
+        android:text="Date"
+        android:gravity="center"
+        android:textColor="#000000"/>
+
+</LinearLayout>

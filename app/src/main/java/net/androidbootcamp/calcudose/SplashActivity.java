@@ -18,11 +18,11 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 finish();
-                startActivity(new Intent(SplashActivity.this, MenuMenu.class));
+                startActivity(new Intent(SplashActivity.this, MainMenu.class));
             }
         };
         Timer opening = new Timer();
-        opening.schedule(task, 4000);
+        opening.schedule(task, 500);
 
 
     }

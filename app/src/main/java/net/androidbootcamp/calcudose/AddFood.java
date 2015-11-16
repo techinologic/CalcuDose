@@ -25,7 +25,6 @@ public class AddFood extends AppCompatActivity {
         foodcarb = (EditText) findViewById(R.id.add_foodcarbs);
         foodfat = (EditText) findViewById(R.id.add_foodfat);
         foodprotein = (EditText) findViewById(R.id.add_foodprotein);
-
     }
 
     public void addFood(View view){

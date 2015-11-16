@@ -14,7 +14,7 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:layout_width="195dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_food_name"
         android:text="Food Name"
@@ -23,7 +23,7 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:layout_width="55dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_food_servings"
         android:text="Servings"
@@ -32,7 +32,7 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_food_carbs"
         android:text="Carbs"
@@ -41,7 +41,7 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:layout_width="23dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_food_fat"
         android:text="Fat"
@@ -50,7 +50,7 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:layout_width="45dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_food_protein"
         android:text="Protein"

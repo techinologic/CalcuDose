@@ -2,16 +2,13 @@ package net.androidbootcamp.calcudose;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.lang.annotation.Target;
-import java.math.BigDecimal;
 
 public class LogBloodGlucose extends AppCompatActivity {
 
@@ -22,6 +19,7 @@ public class LogBloodGlucose extends AppCompatActivity {
     int insulinSensitivityFactor;
     int targetBloodSugar;
     final double ROUNDOFF = 0.5;
+    EditText etxtBG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +32,7 @@ public class LogBloodGlucose extends AppCompatActivity {
         TextView currentIsf = (TextView)findViewById(R.id.tvCurrentIsf);
         TextView currentRatio = (TextView)findViewById(R.id.tvCurrentRatio);
 
-        final EditText etxtBG = (EditText)findViewById(R.id.etxtBG); //enter blood glucose
+        etxtBG = (EditText)findViewById(R.id.etxtBG); //enter blood glucose
         Button calculateDoseBtn = (Button)findViewById(R.id.btnCalculate);
 
         currentTarget.setText(settings.getString("Target", "Not set"));
@@ -48,19 +46,18 @@ public class LogBloodGlucose extends AppCompatActivity {
                 targetBloodSugar = Integer.parseInt(settings.getString("Target", "Not set"));
                 insulinSensitivityFactor = Integer.parseInt(settings.getString("Isf", "Not set"));
 
-                if(etxtBG.getText().toString().equals(null)||etxtBG.getText().toString().equals("")){
+                if (etxtBG.getText().toString().equals(null) || etxtBG.getText().toString().equals("")) {
                     Toast.makeText(LogBloodGlucose.this, "Please enter a valid blood glucose value",
                             Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     bloodGlucose = Integer.parseInt(etxtBG.getText().toString());
                     doseResult = Double.parseDouble(etxtBG.getText().toString());
                     doseResult = (doseResult - targetBloodSugar) / insulinSensitivityFactor;
 
-                    if(doseResult<0){
-                        doseResult=0;
-                    }else {
-                        doseResult = ((double)(long)(doseResult*20+ROUNDOFF)) / 20;
+                    if (doseResult < 0) {
+                        doseResult = 0;
+                    } else {
+                        doseResult = ((double) (long) (doseResult * 20 + ROUNDOFF)) / 20;
                     }
 
                     SharedPreferences.Editor editor = settings.edit();
@@ -80,8 +77,8 @@ public class LogBloodGlucose extends AppCompatActivity {
                 }
             }
         });
-    }
 
+    }
 
 }
 

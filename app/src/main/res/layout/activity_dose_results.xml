@@ -11,27 +11,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtvBG2"
+        android:textSize="20sp"
+        android:layout_marginTop="109dp"
+        android:hint="recommended dose here"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
-        android:layout_width="100sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/txtvResults2"
-        android:textSize="30sp"
+        android:textSize="40sp"
+        android:gravity="center_horizontal"
         android:layout_below="@+id/txtvBG2"
         android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal" />
+        android:hint="dose result here" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtvTarget"
+        android:textSize="20sp"
         android:layout_below="@+id/txtvResults2"
         android:layout_centerHorizontal="true"
-        android:textSize="20sp" />
+        android:hint="target here" />
 
     <Button
         android:layout_width="wrap_content"
@@ -39,7 +43,8 @@
         android:text="@string/btnLog"
         android:id="@+id/btnLog"
         android:textSize="30sp"
-        android:layout_below="@+id/txtvResults2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp" />
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
