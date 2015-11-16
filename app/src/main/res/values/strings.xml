@@ -11,8 +11,8 @@
     <string name="title_activity_view_log_blood_glucose">Log Blood Glucose</string>
     <string name="title_activity_view_log_food2">Log Food2</string>
     <string name="title_activity_search_food">Search Food</string>
-    <string name="title_activity_view_logs">View Logs</string>
     <string name="title_activity_servings">Servings</string>
+    <string name="title_activity_logs">Logs</string>
 
     <string name="txtvRatios">Current Settings</string>
 

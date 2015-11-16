@@ -3,7 +3,7 @@ package net.androidbootcamp.calcudose;
 /**
  * Created by Paolo T. inocencion on 11/8/2015.
  */
-public class DataProvider {
+public class FoodDataProvider {
 
     private String name;
     private String servings;
@@ -11,12 +11,8 @@ public class DataProvider {
     private String fat;
     private String protein;
 
-    private String bg;
-    private String dose;
-    private String date;
 
-
-    public DataProvider(String name, String servings, String carbs, String fat, String protein){
+    public FoodDataProvider(String name, String servings, String carbs, String fat, String protein){
         this.name = name;
         this.servings = servings;
         this.carbs = carbs;
@@ -24,12 +20,7 @@ public class DataProvider {
         this.protein = protein;
     }
 
-    public DataProvider(String name, String bg, String dose, String date){
-        this.name = name;
-        this.bg = bg;
-        this.dose = dose;
-        this.date = date;
-    }
+
 
     public String getName() {
         return name;
@@ -70,28 +61,5 @@ public class DataProvider {
     public void setProtein(String protein) {
         this.protein = protein;
     }
-
-    public String getBg() {
-        return bg;
-    }
-
-    public void setBg(String bg) {
-        this.bg = bg;
-    }
-
-    public String getDose() {
-        return dose;
-    }
-
-    public void setDose(String dose) {
-        this.dose = dose;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 }
+

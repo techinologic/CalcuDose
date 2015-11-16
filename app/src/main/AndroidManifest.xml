@@ -34,10 +34,6 @@
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name=".ViewLogs"
-            android:label="@string/title_activity_view_logs" >
-        </activity>
-        <activity
             android:name=".AddFood"
             android:label="@string/title_activity_add_food" >
         </activity>
@@ -65,7 +61,9 @@
             android:name=".MainMenu"
             android:label="@string/title_activity_main_menu" >
         </activity>
-        <activity android:name=".LogDataListActivity" >
+        <activity
+            android:name=".LogDataListActivity"
+            android:label="@string/title_activity_logs">
         </activity>
     </application>
 

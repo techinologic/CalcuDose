@@ -25,13 +25,14 @@ public class LogDataListActivity extends AppCompatActivity {
         cursor = logDbHelper.getLogEventInformation(sqLiteDatabase); //get information from db
         if(cursor.moveToFirst()){
             do{
-                String name, bg, dose, date;
+                String name, bg, dose, oras, date;
                 name = cursor.getString(0);
                 bg = cursor.getString(1);
                 dose = cursor.getString(2);
-                date = cursor.getString(3);
-                DataProvider dataProvider = new DataProvider(name, bg, dose, date);
-                logListDataAdapter.add(dataProvider);
+                oras = cursor.getString(3);
+                //date = cursor.getString(4);
+                LogDataProvider logdataProvider = new LogDataProvider(name, bg, dose, oras);
+                logListDataAdapter.add(logdataProvider);
 
             }while (cursor.moveToNext());
         }

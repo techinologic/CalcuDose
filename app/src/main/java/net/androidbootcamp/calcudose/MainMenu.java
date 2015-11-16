@@ -35,7 +35,7 @@ public class MainMenu extends AppCompatActivity {
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainMenu.this, ViewLogs.class));
+                startActivity(new Intent(MainMenu.this, LogDataListActivity.class));
             }
         });
 

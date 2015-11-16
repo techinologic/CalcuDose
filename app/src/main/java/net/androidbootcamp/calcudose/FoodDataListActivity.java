@@ -39,9 +39,9 @@ public class FoodDataListActivity extends AppCompatActivity {
                 fat = cursor.getString(3);
                 protein = cursor.getString(4);
 
-                DataProvider dataProvider = new DataProvider(name, servings, carbs, fat, protein);
+                FoodDataProvider foodDataProvider = new FoodDataProvider(name, servings, carbs, fat, protein);
 
-                foodListDataAdapter.add(dataProvider); //this will pass each row of data in adapter
+                foodListDataAdapter.add(foodDataProvider); //this will pass each row of data in adapter
 
             } while (cursor.moveToNext());
         }

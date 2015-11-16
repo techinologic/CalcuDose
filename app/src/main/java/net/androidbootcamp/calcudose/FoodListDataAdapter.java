@@ -57,12 +57,12 @@ public class FoodListDataAdapter extends ArrayAdapter {
             layoutHandler = (LayoutHandler) row.getTag();
         }
 
-        DataProvider dataProvider = (DataProvider) this.getItem(position);
-        layoutHandler.NAME.setText(dataProvider.getName());
-        layoutHandler.SERVINGS.setText(dataProvider.getServings());
-        layoutHandler.CARBS.setText(dataProvider.getCarbs());
-        layoutHandler.FAT.setText(dataProvider.getFat());
-        layoutHandler.PROTEIN.setText(dataProvider.getProtein());
+        FoodDataProvider foodDataProvider = (FoodDataProvider) this.getItem(position);
+        layoutHandler.NAME.setText(foodDataProvider.getName());
+        layoutHandler.SERVINGS.setText(foodDataProvider.getServings());
+        layoutHandler.CARBS.setText(foodDataProvider.getCarbs());
+        layoutHandler.FAT.setText(foodDataProvider.getFat());
+        layoutHandler.PROTEIN.setText(foodDataProvider.getProtein());
 
         return row;
     }

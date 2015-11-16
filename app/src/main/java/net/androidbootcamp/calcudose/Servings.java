@@ -46,7 +46,6 @@ public class Servings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 editor.putString("Servings", etxt_numberofservings.getText().toString());
                 editor.putString("CurrentBG", etxtBG.getText().toString());
                 editor.commit();
