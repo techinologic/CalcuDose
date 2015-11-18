@@ -41,8 +41,9 @@ public class LogBloodGlucose extends AppCompatActivity {
 
         etxtBG = (EditText)findViewById(R.id.etxtBG); //enter blood glucose
         Button calculateDoseBtn = (Button)findViewById(R.id.btnCalculate);
-        Button btn_call_911 = (Button) findViewById(R.id.btn_call_911);
         Button btn_call_emergency_contact = (Button) findViewById(R.id.btn_call_emergency_contact);
+        Button btn_show_medical_id = (Button) findViewById(R.id.btn_show_medicalId);
+        Button btn_call_911 = (Button) findViewById(R.id.btn_call_911);
 
         currentTarget.setText(settings.getString("Target", "Not set"));
         currentIsf.setText(settings.getString("Isf", "Not set"));
@@ -101,6 +102,13 @@ public class LogBloodGlucose extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:443-540-0310")));
+            }
+        });
+
+        btn_show_medical_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LogBloodGlucose.this, MedicalId.class));
             }
         });
 

@@ -14,8 +14,8 @@
         android:id="@+id/etxtBG"
         android:hint="@string/etxtBG"
         android:textSize="40sp"
-        android:layout_marginTop="121dp"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/displayDate"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -24,7 +24,8 @@
         android:text="@string/btnCalculate"
         android:id="@+id/btnCalculate"
         android:layout_below="@+id/etxtBG"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -136,7 +137,8 @@
         android:text="Show Medical ID"
         android:id="@+id/btn_show_medicalId"
         android:layout_alignTop="@+id/btn_call_emergency_contact"
-        android:layout_alignRight="@+id/btnCalculate"
-        android:layout_alignEnd="@+id/btnCalculate" />
+        android:layout_alignLeft="@+id/txtvRatios"
+        android:layout_alignStart="@+id/txtvRatios"
+        android:layout_marginLeft="10sp" />
 
 </RelativeLayout>
