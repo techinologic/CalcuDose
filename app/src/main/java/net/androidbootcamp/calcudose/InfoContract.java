@@ -17,7 +17,7 @@ public class InfoContract {
 
         public static final String USER_BG = "user_bg";
         public static final String USER_DOSE = "user_dose";
-        public static final String LOG_ORAS = "oras_ngayon";
+        public static final String LOG_CURRENT_TIME = "oras_ngayon";
         public static final String LOG_DATE = "current_date";
     }
 }

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtvBG2"
         android:textSize="20sp"
-        android:layout_marginTop="109dp"
+        android:layout_marginTop="70dp"
         android:hint="recommended dose here"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -43,8 +43,7 @@
         android:text="@string/btnLog"
         android:id="@+id/btnLog"
         android:textSize="30sp"
-        android:layout_marginBottom="60dp"
-        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <TextView

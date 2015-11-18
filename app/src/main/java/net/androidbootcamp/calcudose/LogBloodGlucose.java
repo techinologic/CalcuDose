@@ -2,6 +2,7 @@ package net.androidbootcamp.calcudose;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class LogBloodGlucose extends AppCompatActivity {
 
@@ -20,6 +24,7 @@ public class LogBloodGlucose extends AppCompatActivity {
     int targetBloodSugar;
     final double ROUNDOFF = 0.5;
     EditText etxtBG;
+    String currentDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +36,20 @@ public class LogBloodGlucose extends AppCompatActivity {
         TextView currentTarget = (TextView)findViewById(R.id.tvCurrentTarget);
         TextView currentIsf = (TextView)findViewById(R.id.tvCurrentIsf);
         TextView currentRatio = (TextView)findViewById(R.id.tvCurrentRatio);
+        TextView displayDate = (TextView) findViewById(R.id.displayDate);
+
 
         etxtBG = (EditText)findViewById(R.id.etxtBG); //enter blood glucose
         Button calculateDoseBtn = (Button)findViewById(R.id.btnCalculate);
+        Button btn_call_911 = (Button) findViewById(R.id.btn_call_911);
+        Button btn_call_emergency_contact = (Button) findViewById(R.id.btn_call_emergency_contact);
 
         currentTarget.setText(settings.getString("Target", "Not set"));
         currentIsf.setText(settings.getString("Isf", "Not set"));
         currentRatio.setText(settings.getString("IToCarbRatio", "Not set"));
+
+        currentDate = DateFormat.getDateTimeInstance().format(new Date());
+        displayDate.setText(currentDate);
 
         calculateDoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +87,20 @@ public class LogBloodGlucose extends AppCompatActivity {
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
+            }
+        });
+
+        btn_call_911.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:911")));
+            }
+        });
+
+        btn_call_emergency_contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:443-540-0310")));
             }
         });
 

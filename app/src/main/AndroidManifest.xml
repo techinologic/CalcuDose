@@ -63,7 +63,9 @@
         </activity>
         <activity
             android:name=".LogDataListActivity"
-            android:label="@string/title_activity_logs">
+            android:label="@string/title_activity_logs" >
+        </activity>
+        <activity android:name=".MedicalId" >
         </activity>
     </application>
 

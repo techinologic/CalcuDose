@@ -31,36 +31,36 @@
         android:layout_height="wrap_content"
         android:text="@string/txtvRatios"
         android:id="@+id/txtvRatios"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/btnCalculate"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_settings_targetBloodGlucose"
         android:id="@+id/txt_settings_targetBloodGlucose"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/txtvRatios"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_settings_insulinSensitivityFactor"
         android:id="@+id/txt_settings_insulinSensitivityFactor"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/txt_settings_targetBloodGlucose"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_settings_insulinToCarbRatio"
         android:id="@+id/txt_settings_insulinToCarbRatio"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/txt_settings_insulinSensitivityFactor"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,5 +88,55 @@
         android:layout_alignBottom="@+id/txt_settings_insulinToCarbRatio"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80sp"
+        android:layout_height="70sp"
+        android:text="Call 911"
+        android:id="@+id/btn_call_911"
+        android:layout_alignTop="@+id/btn_show_medicalId"
+        android:layout_alignRight="@+id/tvCurrentRatio"
+        android:layout_alignEnd="@+id/tvCurrentRatio" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="110sp"
+        android:layout_height="70sp"
+        android:text="Call Emergency Contact"
+        android:id="@+id/btn_call_emergency_contact"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today&apos;s Date and Time :"
+        android:id="@+id/textView19"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textIsSelectable="false"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/displayDate"
+        android:layout_below="@+id/textView19"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="110dp"
+        android:layout_height="70sp"
+        android:text="Show Medical ID"
+        android:id="@+id/btn_show_medicalId"
+        android:layout_alignTop="@+id/btn_call_emergency_contact"
+        android:layout_alignRight="@+id/btnCalculate"
+        android:layout_alignEnd="@+id/btnCalculate" />
 
 </RelativeLayout>

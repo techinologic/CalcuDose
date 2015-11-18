@@ -25,6 +25,7 @@ public class Settings extends AppCompatActivity {
         final EditText etxt_targetBloodGlucose = (EditText)findViewById(R.id.etxt_targetBloodGlucose);
         final EditText etxt_insulinSensitivyFactor = (EditText)findViewById(R.id.etxt_insulinSensitivityFactor);
         final EditText etxt_insulinToCarbRatio = (EditText)findViewById(R.id.etxt_insulinToCarbRatio);
+        final EditText etxt_emergency_phone = (EditText)findViewById(R.id.etxt_emergency_phone);
 
         Button saveValues = (Button)findViewById(R.id.btn_settings_save);
 
@@ -52,6 +53,7 @@ public class Settings extends AppCompatActivity {
                 editor.putString("Target", etxt_targetBloodGlucose.getText().toString());
                 editor.putString("Isf", etxt_insulinSensitivyFactor.getText().toString());
                 editor.putString("IToCarbRatio", etxt_insulinToCarbRatio.getText().toString());
+                editor.putString("EmergencyPhone", etxt_emergency_phone.getText().toString());
                 editor.commit();
 
                 currentTarget.setText(settings.getString("Target", "Not set"));

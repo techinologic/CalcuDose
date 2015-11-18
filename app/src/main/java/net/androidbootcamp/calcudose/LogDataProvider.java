@@ -16,7 +16,6 @@ public class LogDataProvider {
         this.bg = bg;
         this.dose = dose;
         this.oras = oras;
-        this.date = date;
     }
 
     public String getName() {

@@ -20,7 +20,7 @@ public class LogDbHelper extends SQLiteOpenHelper{
                     "(" + InfoContract.NewInfo.FOOD_NAME +
                     " TEXT," + InfoContract.NewInfo.USER_BG +
                     " TEXT," + InfoContract.NewInfo.USER_DOSE +
-                    " TEXT," + InfoContract.NewInfo.LOG_ORAS +
+                    " TEXT," + InfoContract.NewInfo.LOG_CURRENT_TIME +
                     " TEXT," + InfoContract.NewInfo.LOG_DATE + " TEXT);";
 
     public LogDbHelper(Context context) {
@@ -39,8 +39,7 @@ public class LogDbHelper extends SQLiteOpenHelper{
         contentValues.put(InfoContract.NewInfo.FOOD_NAME, name);
         contentValues.put(InfoContract.NewInfo.USER_BG, bg);
         contentValues.put(InfoContract.NewInfo.USER_DOSE, dose);
-        contentValues.put(InfoContract.NewInfo.LOG_ORAS, oras);
-        //contentValues.put(InfoContract.NewInfo.LOG_DATE, date);
+        contentValues.put(InfoContract.NewInfo.LOG_CURRENT_TIME, oras);
 
         db.insert(InfoContract.NewInfo.LOG_TABLE_NAME, null, contentValues);
         Log.e("DATABASE OPERATIONS", "One log row inserted...");
@@ -52,8 +51,7 @@ public class LogDbHelper extends SQLiteOpenHelper{
                 InfoContract.NewInfo.FOOD_NAME,
                 InfoContract.NewInfo.USER_BG,
                 InfoContract.NewInfo.USER_DOSE,
-                InfoContract.NewInfo.LOG_ORAS,
-                //InfoContract.NewInfo.LOG_DATE
+                InfoContract.NewInfo.LOG_CURRENT_TIME,
         };
         cursor = db.query(InfoContract.NewInfo.LOG_TABLE_NAME, projections, null, null, null, null, null);
         return cursor;
