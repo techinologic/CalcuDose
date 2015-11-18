@@ -53,6 +53,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
+        android:maxLength="3"
         android:id="@+id/etxt_targetBloodGlucose"
         android:layout_alignBottom="@+id/txt_settings_targetBloodGlucose"
         android:layout_alignLeft="@+id/etxt_insulinSensitivityFactor"
@@ -63,6 +64,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
+        android:maxLength="2"
         android:id="@+id/etxt_insulinSensitivityFactor"
         android:layout_alignBottom="@+id/txt_settings_insulinSensitivityFactor"
         android:layout_alignLeft="@+id/etxt_insulinToCarbRatio"
@@ -73,6 +75,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
+        android:maxLength="2"
         android:id="@+id/etxt_insulinToCarbRatio"
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignParentRight="true"
@@ -191,10 +194,19 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
+        android:maxLength="7"
         android:id="@+id/etxt_emergency_phone"
         android:hint="Phone #"
         android:layout_below="@+id/textView18"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numbers only, no dashes and parenthesis"
+        android:id="@+id/textView31"
+        android:layout_below="@+id/etxt_emergency_phone"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

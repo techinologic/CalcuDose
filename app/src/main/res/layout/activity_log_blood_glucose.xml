@@ -11,6 +11,7 @@
         android:layout_height="120sp"
         android:inputType="number"
         android:ems="10"
+        android:maxLength="3"
         android:id="@+id/etxtBG"
         android:hint="@string/etxtBG"
         android:textSize="40sp"
