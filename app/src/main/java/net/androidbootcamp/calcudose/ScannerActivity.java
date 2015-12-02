@@ -42,8 +42,19 @@ public class ScannerActivity extends AppCompatActivity implements View.OnClickLi
         if (scanningResult != null) {
             String scanContent = scanningResult.getContents();
             String scanFormat = scanningResult.getFormatName();
+
+
             formatTxt.setText("FORMAT: " + scanFormat);
             contentTxt.setText("CONTENT: " + scanContent);
+
+            //put food name in editext after scanner
+
+
+
+
+
+
+
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT);
             toast.show();

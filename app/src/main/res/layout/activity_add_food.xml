@@ -13,10 +13,10 @@
         android:text="@string/txtv_NumberServings"
         android:id="@+id/txtv_NumberServings"
         android:textSize="20sp"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:layout_below="@+id/add_foodname"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="77dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -66,10 +66,12 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textAutoComplete"
         android:id="@+id/add_foodname"
+        android:layout_marginTop="64dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignRight="@+id/scan_button"
+        android:layout_alignEnd="@+id/scan_button"
         android:layout_toRightOf="@+id/textView4"
         android:layout_toEndOf="@+id/textView4" />
 
@@ -128,9 +130,35 @@
         android:layout_height="wrap_content"
         android:text="Save Food"
         android:id="@+id/button"
-        android:layout_below="@+id/add_foodprotein"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"
-        android:onClick="addFood" />
+        android:onClick="addFood"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnScan"
+        android:id="@+id/scan_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnWeb"
+        android:id="@+id/button3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/contenttxt"
+        android:layout_above="@+id/add_foodservings"
+        android:layout_alignRight="@+id/txtv_NumberServings"
+        android:layout_alignEnd="@+id/txtv_NumberServings" />
 
 </RelativeLayout>
