@@ -6,11 +6,11 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:id="@+id/text_log_food_name"
         android:text="food name"
-        android:gravity="center"
+        android:gravity="left"
         android:textColor="#000000"/>
 
     <TextView
@@ -24,6 +24,7 @@
 
     <TextView
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:id="@+id/text_log_dose"
@@ -33,7 +34,8 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:layout_width="130dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:id="@+id/text_log_time"
         android:text="display time"

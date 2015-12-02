@@ -10,123 +10,122 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name: "
+        android:text="Name: John Smith Jr."
         android:id="@+id/textView20"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:layout_below="@+id/imageView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10sp" />
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medical Conditions"
+        android:text="Medical Conditions: Type 1 Diabetes"
         android:id="@+id/textView21"
         android:layout_below="@+id/textView20"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medications:"
+        android:text="Medications: Fast Acting Insulin (Novolog)"
         android:id="@+id/textView22"
         android:layout_below="@+id/textView21"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spouse:"
+        android:text="Spouse: Jane Smith"
         android:id="@+id/textView23"
         android:layout_below="@+id/textView22"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Father:"
+        android:text="Father: John Smith Sr."
         android:id="@+id/textView24"
         android:layout_below="@+id/textView23"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mother:"
+        android:text="Mother: Janet Smith"
         android:id="@+id/textView25"
         android:layout_below="@+id/textView24"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Blood Type:"
+        android:text="Blood Type: O"
         android:id="@+id/textView26"
         android:layout_below="@+id/textView25"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date of Birth: "
+        android:text="Date of Birth: April 11, 1990"
         android:id="@+id/textView27"
         android:layout_below="@+id/textView26"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Allergies &amp; Reactions:"
+        android:text="Allergies &amp; Reactions: Cowardice and weak-willed men"
         android:id="@+id/textView28"
         android:layout_below="@+id/textView27"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Emergency Contact"
+        android:text="Emergency Contact: Janet Smith 212-212-2121"
         android:id="@+id/textView29"
         android:layout_below="@+id/textView28"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Organ Donor: "
-        android:id="@+id/textView30"
-        android:layout_below="@+id/textView29"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="20sp"
-        android:layout_marginTop="10sp" />
+        android:textSize="16sp"
+        android:layout_marginTop="10sp"
+        android:textColor="#000000" />
 
     <ImageView
         android:layout_width="wrap_content"

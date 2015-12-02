@@ -32,6 +32,7 @@ public class Settings extends AppCompatActivity {
         final TextView currentTarget = (TextView)findViewById(R.id.currentTarget);
         final TextView currentIsf = (TextView)findViewById(R.id.currentIsf);
         final TextView currentRatio = (TextView)findViewById(R.id.currentRatio);
+        final TextView savedEmergencyContact = (TextView)findViewById(R.id.tv_saved_emergency_phone);
 
         final SharedPreferences settings = getSharedPreferences(SETTINGS_PREFERENCES, 0);
         final SharedPreferences.Editor editor = settings.edit();
@@ -39,6 +40,8 @@ public class Settings extends AppCompatActivity {
         currentTarget.setText(settings.getString("Target", "Not set"));
         currentIsf.setText(settings.getString("Isf", "Not set"));
         currentRatio.setText(settings.getString("IToCarbRatio", "Not set"));
+        savedEmergencyContact.setText(settings.getString("EmergencyPhone", "None Saved"));
+
 
 
         saveValues.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +62,7 @@ public class Settings extends AppCompatActivity {
                 currentTarget.setText(settings.getString("Target", "Not set"));
                 currentIsf.setText(settings.getString("Isf", "Not set"));
                 currentRatio.setText(settings.getString("IToCarbRatio", "Not set"));
+                savedEmergencyContact.setText(settings.getString("EmergencyPhone", "None Saved"));
 
                 Toast.makeText(Settings.this, "New Values Saved", Toast.LENGTH_LONG).show();
             }

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.androidbootcamp.calcudose" >
+    package="net.androidbootcamp.calcudose">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,55 +19,44 @@
         </activity>
         <activity
             android:name=".DoseResults"
-            android:label="@string/title_activity_dose_results" >
-        </activity>
+            android:label="@string/title_activity_dose_results"></activity>
         <activity
             android:name=".LogBloodGlucose"
-            android:label="@string/title_activity_view_log_blood_glucose" >
-        </activity>
+            android:label="@string/title_activity_view_log_blood_glucose"></activity>
         <activity
             android:name=".LogFood"
-            android:label="@string/title_activity_log_food" >
-        </activity>
+            android:label="@string/title_activity_log_food"></activity>
         <activity
             android:name=".Settings"
-            android:label="@string/title_activity_settings" >
-        </activity>
+            android:label="@string/title_activity_settings"></activity>
         <activity
             android:name=".AddFood"
-            android:label="@string/title_activity_add_food" >
-        </activity>
+            android:label="@string/title_activity_add_food"></activity>
         <activity
             android:name=".LogFood2"
-            android:label="@string/title_activity_log_food" >
-        </activity>
+            android:label="@string/title_activity_log_food"></activity>
         <activity
             android:name=".Servings"
-            android:label="@string/title_activity_servings" >
-        </activity>
+            android:label="@string/title_activity_servings"></activity>
         <activity
             android:name=".FoodDoseResult"
-            android:label="@string/title_activity_dose_results" >
-        </activity>
+            android:label="@string/title_activity_dose_results"></activity>
         <activity
             android:name=".FoodDataListActivity"
-            android:label="@string/title_activity_food_list" >
-        </activity>
+            android:label="@string/title_activity_food_list"></activity>
         <activity
             android:name=".SearchFood"
-            android:label="@string/title_activity_search_food" >
-        </activity>
+            android:label="@string/title_activity_search_food"></activity>
         <activity
             android:name=".MainMenu"
-            android:label="@string/title_activity_main_menu" >
-        </activity>
+            android:label="@string/title_activity_main_menu"></activity>
         <activity
             android:name=".LogDataListActivity"
-            android:label="@string/title_activity_logs" >
-        </activity>
-        <activity android:name=".MedicalId"
-            android:label="@string/title_activity_medical_id">
-        </activity>
+            android:label="@string/title_activity_logs"></activity>
+        <activity
+            android:name=".MedicalId"
+            android:label="@string/title_activity_medical_id"></activity>
+        <activity android:name=".ScannerActivity"></activity>
     </application>
 
 </manifest>

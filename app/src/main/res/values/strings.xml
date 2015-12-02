@@ -68,4 +68,7 @@
 
     <string name="etxt_numberofservings"></string>
 
+    <string name="btnScan">Scan Barcode</string>
+
+
 </resources>

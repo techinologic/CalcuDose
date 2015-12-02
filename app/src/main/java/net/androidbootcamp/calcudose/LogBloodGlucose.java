@@ -20,8 +20,8 @@ public class LogBloodGlucose extends AppCompatActivity {
 
     int bloodGlucose = -1;
     double doseResult;
-    int insulinSensitivityFactor;
-    int targetBloodSugar;
+    int insulinSensitivityFactor = 35;
+    int targetBloodSugar = 100;
     final double ROUNDOFF = 0.5;
     EditText etxtBG;
     String currentDate;
@@ -45,9 +45,9 @@ public class LogBloodGlucose extends AppCompatActivity {
         Button btn_show_medical_id = (Button) findViewById(R.id.btn_show_medicalId);
         Button btn_call_911 = (Button) findViewById(R.id.btn_call_911);
 
-        currentTarget.setText(settings.getString("Target", "Not set"));
-        currentIsf.setText(settings.getString("Isf", "Not set"));
-        currentRatio.setText(settings.getString("IToCarbRatio", "Not set"));
+        currentTarget.setText(settings.getString("Target", "100"));
+        currentIsf.setText(settings.getString("Isf", "35"));
+        currentRatio.setText(settings.getString("IToCarbRatio", "10"));
 
         currentDate = DateFormat.getDateTimeInstance().format(new Date());
         displayDate.setText(currentDate);
@@ -56,8 +56,8 @@ public class LogBloodGlucose extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                targetBloodSugar = Integer.parseInt(settings.getString("Target", "Not set"));
-                insulinSensitivityFactor = Integer.parseInt(settings.getString("Isf", "Not set"));
+                targetBloodSugar = Integer.parseInt(settings.getString("Target", "100"));
+                insulinSensitivityFactor = Integer.parseInt(settings.getString("Isf", "35"));
 
                 if (etxtBG.getText().toString().equals(null) || etxtBG.getText().toString().equals("")) {
                     Toast.makeText(LogBloodGlucose.this, "Please enter a valid blood glucose value",
