@@ -3,8 +3,8 @@ package net.androidbootcamp.calcudose;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,6 +22,7 @@ public class LogDataListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_data_list);
 
         Button btnLogs_main_menu = (Button)findViewById(R.id.btn_logs_main_menu);
+        Button btn_addnew = (Button) findViewById(R.id.btn_addnew);
 
         listView = (ListView) findViewById(R.id.log_list_view);
         logListDataAdapter = new LogListDataAdapter(getApplicationContext(), R.layout.log_row_layout);
@@ -49,5 +50,7 @@ public class LogDataListActivity extends AppCompatActivity {
                 startActivity(new Intent(LogDataListActivity.this, MainMenu.class));
             }
         });
+
+
     }
 }

@@ -1,12 +1,15 @@
 package net.androidbootcamp.calcudose;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class FoodDataListActivity extends AppCompatActivity {
 
@@ -36,6 +39,9 @@ public class FoodDataListActivity extends AppCompatActivity {
         sqLiteDatabase = foodDbHelper.getReadableDatabase();
         cursor = foodDbHelper.getInformation(sqLiteDatabase);
 
+        Button btn_search = (Button) findViewById(R.id.btn_list_search);
+        Button btn_addnew = (Button) findViewById(R.id.btn_addnew);
+
         if (cursor.moveToFirst()) {
             do {
                 name = cursor.getString(0);
@@ -55,25 +61,23 @@ public class FoodDataListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> a, View v, int position, long l) {
 
 
-                foodDbHelper = new FoodDbHelper(getApplicationContext());
-                sqLiteDatabase = foodDbHelper.getReadableDatabase();
-                Cursor cursor = foodDbHelper.getFood(search_name, sqLiteDatabase);
-
-                if (cursor.moveToFirst()) {
-                    String NAME = cursor.getString(0);
-                    String CARBS = cursor.getString(1);
-                    String FAT = cursor.getString(2);
-                    String PROTEIN = cursor.getString(3);
-
-                    display_name = NAME;
-
-
-                }
-
-
-                //Toast.makeText(getApplicationContext(), "Item clicked: "+position+display_name , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Future Feature", Toast.LENGTH_SHORT).show();
                 //Intent mainIntent = new Intent(FoodDataListActivity.this, Servings.class);
                 //startActivity(mainIntent);
+            }
+        });
+
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FoodDataListActivity.this, SearchFood.class));
+            }
+        });
+
+        btn_addnew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FoodDataListActivity.this, AddFood.class));
             }
         });
     }

@@ -90,6 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/search_name"
+        android:inputType="textAutoCorrect"
         android:layout_alignBottom="@+id/btn_search"
         android:layout_toLeftOf="@+id/btn_search"
         android:layout_alignParentLeft="true"
@@ -105,4 +106,20 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="searchFood"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Dose"
+        android:id="@+id/btn_foodDose"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/webView"
+        android:layout_above="@+id/btn_foodDose"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

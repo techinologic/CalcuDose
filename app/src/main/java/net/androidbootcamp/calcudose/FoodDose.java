@@ -70,6 +70,7 @@ public class FoodDose extends AppCompatActivity {
         Button btn_call_911 = (Button) findViewById(R.id.btn_call_911);
 
         Button scanBtn = (Button) findViewById(R.id.btnScan);
+        Button btn_addnew = (Button) findViewById(R.id.btn_addnew);
 
         currentTarget.setText(settings.getString("Target", "100"));
         currentIsf.setText(settings.getString("Isf", "35"));
@@ -152,6 +153,13 @@ public class FoodDose extends AppCompatActivity {
                     scanIntegrator.initiateScan();
                 }
 
+            }
+        });
+
+        btn_addnew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FoodDose.this, FoodDataListActivity.class));
             }
         });
 

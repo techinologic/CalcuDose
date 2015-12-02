@@ -52,7 +52,7 @@ public class AddFood extends AppCompatActivity {
 
         //scanner widgets
         scanBtn = (Button) findViewById(R.id.scan_button);
-        btnAddFood_calculateDose = (Button) findViewById(R.id.btnAddFood_calculateDose);
+        //btnAddFood_calculateDose = (Button) findViewById(R.id.btnAddFood_calculateDose);
         formatTxt = (TextView) findViewById(R.id.textView);
         //contentTxt = (TextView) findViewById(R.id.contenttxt);
 
@@ -68,15 +68,7 @@ public class AddFood extends AppCompatActivity {
             }
         });
 
-        btnAddFood_calculateDose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //add food data to calculate dose in dose results
 
-
-                startActivity(new Intent(AddFood.this, DoseResults.class));
-            }
-        });
 
 
     }
@@ -95,6 +87,7 @@ public class AddFood extends AppCompatActivity {
             foodDbHelper.addFood(name, servings, carb, fat, protein, sqLiteDatabase);
             Toast.makeText(getBaseContext(), "Food Saved", Toast.LENGTH_LONG).show();
             foodDbHelper.close();
+            startActivity(new Intent(AddFood.this, FoodDataListActivity.class));
         }
     }
 

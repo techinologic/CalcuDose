@@ -61,4 +61,24 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/btn_list_search"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView36"
+        android:layout_alignStart="@+id/textView36" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD new"
+        android:id="@+id/btn_addnew"
+        android:layout_alignTop="@+id/btn_list_search"
+        android:layout_toLeftOf="@+id/btn_list_search"
+        android:layout_toStartOf="@+id/btn_list_search" />
 </RelativeLayout>
