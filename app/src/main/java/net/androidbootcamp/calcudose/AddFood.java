@@ -21,18 +21,16 @@ public class AddFood extends AppCompatActivity {
     FoodDbHelper foodDbHelper;
     SQLiteDatabase sqLiteDatabase;
 
-
     String name;
     String servings;
     String carb;
     String fat;
     String protein;
 
-
     private Button scanBtn;
+    private Button btnAddFood_calculateDose;
     private TextView formatTxt;
     private TextView contentTxt;
-
 
     public String oreo_name = "Double Stuf Oreo";
     public String oreo_servings = "1";
@@ -40,8 +38,6 @@ public class AddFood extends AppCompatActivity {
     public String oreo_fat = "7";
     public String oreo_prot = "1";
     public String oreo_barcode = "044000029524";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +52,10 @@ public class AddFood extends AppCompatActivity {
 
         //scanner widgets
         scanBtn = (Button) findViewById(R.id.scan_button);
+        btnAddFood_calculateDose = (Button) findViewById(R.id.btnAddFood_calculateDose);
         formatTxt = (TextView) findViewById(R.id.textView);
-        contentTxt = (TextView) findViewById(R.id.contenttxt);
+        //contentTxt = (TextView) findViewById(R.id.contenttxt);
+
 
         scanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +65,16 @@ public class AddFood extends AppCompatActivity {
                     scanIntegrator.initiateScan();
                 }
 
+            }
+        });
+
+        btnAddFood_calculateDose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //add food data to calculate dose in dose results
+
+
+                startActivity(new Intent(AddFood.this, DoseResults.class));
             }
         });
 
@@ -98,17 +106,24 @@ public class AddFood extends AppCompatActivity {
 
             //set foodname to edittext
             if (scanContent.equals(oreo_barcode)) {
-                name = oreo_name;
-                servings = oreo_servings;
-                fat = oreo_fat;
-                carb = oreo_carb;
-                protein = oreo_prot;
-                addFoodScanner();
+                foodname.setText(oreo_name, TextView.BufferType.EDITABLE);
+                foodservings.setText(oreo_servings, TextView.BufferType.EDITABLE);
+                foodcarb.setText(oreo_carb, TextView.BufferType.EDITABLE);
+                foodfat.setText(oreo_fat, TextView.BufferType.EDITABLE);
+                foodprotein.setText(oreo_prot, TextView.BufferType.EDITABLE);
+
+
+                //name = oreo_name;
+                //servings = oreo_servings;
+                //fat = oreo_fat;
+                //carb = oreo_carb;
+                //protein = oreo_prot;
+                //addFoodScanner();
             }
 
 
             //formatTxt.setText("FORMAT: " + scanFormat);
-            contentTxt.setText("CONTENT: " + scanContent);
+            //contentTxt.setText("CONTENT: " + scanContent);
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT);
             toast.show();

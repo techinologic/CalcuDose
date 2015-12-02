@@ -1,6 +1,5 @@
 package net.androidbootcamp.calcudose;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -17,8 +16,15 @@ public class FoodDataListActivity extends AppCompatActivity {
     Cursor cursor;
     FoodListDataAdapter foodListDataAdapter;
 
+    String search_name;
+    String display_name;
+
+
+    String name, servings, carbs, fat, protein;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_data_list);
 
@@ -32,7 +38,6 @@ public class FoodDataListActivity extends AppCompatActivity {
 
         if (cursor.moveToFirst()) {
             do {
-                String name, servings, carbs, fat, protein;
                 name = cursor.getString(0);
                 servings = cursor.getString(1);
                 carbs = cursor.getString(2);
@@ -47,9 +52,28 @@ public class FoodDataListActivity extends AppCompatActivity {
         }
         listView.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> a, View v, int i, long l) {
-                Intent mainIntent = new Intent(FoodDataListActivity.this, Servings.class);
-                startActivity(mainIntent);
+            public void onItemClick(AdapterView<?> a, View v, int position, long l) {
+
+
+                foodDbHelper = new FoodDbHelper(getApplicationContext());
+                sqLiteDatabase = foodDbHelper.getReadableDatabase();
+                Cursor cursor = foodDbHelper.getFood(search_name, sqLiteDatabase);
+
+                if (cursor.moveToFirst()) {
+                    String NAME = cursor.getString(0);
+                    String CARBS = cursor.getString(1);
+                    String FAT = cursor.getString(2);
+                    String PROTEIN = cursor.getString(3);
+
+                    display_name = NAME;
+
+
+                }
+
+
+                //Toast.makeText(getApplicationContext(), "Item clicked: "+position+display_name , Toast.LENGTH_SHORT).show();
+                //Intent mainIntent = new Intent(FoodDataListActivity.this, Servings.class);
+                //startActivity(mainIntent);
             }
         });
     }

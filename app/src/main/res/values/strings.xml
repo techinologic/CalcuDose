@@ -8,19 +8,20 @@
     <string name="title_activity_log_food">Log Food</string>
     <string name="title_activity_food_list">Food List</string>
     <string name="title_activity_dose_results">Dose Results</string>
-    <string name="title_activity_view_log_blood_glucose">Log Blood Glucose</string>
+    <string name="title_activity_view_log_blood_glucose">Glucose Dose</string>
     <string name="title_activity_view_log_food2">Log Food2</string>
     <string name="title_activity_search_food">Search Food</string>
     <string name="title_activity_servings">Servings</string>
     <string name="title_activity_logs">Logs</string>
     <string name="title_activity_medical_id">Medical ID</string>
+    <string name="title_activity_food_dose">Food Dose</string>
 
     <string name="txtvRatios">Current Settings</string>
 
     <string name="btnCalculate">Calculate Dose</string>
     <string name="btnLog">Log Event</string>
-    <string name="btnLogFood">Log Food</string>
-    <string name="btnLogBloodGlucose">Log Blood Glucose</string>
+    <string name="btnLogFood">Food DOSE</string>
+    <string name="btnLogBloodGlucose">Glucose DOSE</string>
     <string name="btnViewLogs">View Logs</string>
     <string name="btnSettings">Settings</string>
     <string name="btn_settings_save">Save Values</string>

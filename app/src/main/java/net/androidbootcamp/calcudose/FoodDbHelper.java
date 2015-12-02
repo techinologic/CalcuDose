@@ -33,6 +33,10 @@ public class FoodDbHelper extends SQLiteOpenHelper {
         Log.e("DATABASE OPERATIONS", "Food Table created...");
     }
 
+    public void getData() {
+
+    }
+
     public void addFood(String name, String servings, String carb, String fat, String protein,
                         SQLiteDatabase db) {
         ContentValues contentValues = new ContentValues();
