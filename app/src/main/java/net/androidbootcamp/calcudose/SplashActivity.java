@@ -1,8 +1,8 @@
 package net.androidbootcamp.calcudose;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         };
         Timer opening = new Timer();
-        opening.schedule(task, 000);
+        opening.schedule(task, 6000);
 
 
     }
