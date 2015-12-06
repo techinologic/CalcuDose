@@ -2,6 +2,8 @@ package net.androidbootcamp.calcudose;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +22,10 @@ import java.util.Date;
 public class FoodDose extends AppCompatActivity {
 
     public static final String SETTINGS_PREFERENCES = "Settings";
+
+    SQLiteDatabase sqLiteDatabase;
+    FoodDbHelper foodDbHelper;
+    Cursor cursor;
 
     int bloodGlucose = -1;
     double carbs = 0;
@@ -45,6 +51,11 @@ public class FoodDose extends AppCompatActivity {
     public String oreo_barcode = "044000029524";
 
 
+    String name, servings, getCarbs, fat, protein;
+    int position;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +74,37 @@ public class FoodDose extends AppCompatActivity {
         et_fat = (EditText) findViewById(R.id.et_fat);
         et_carb = (EditText) findViewById(R.id.et_carbs);
         et_prot = (EditText) findViewById(R.id.et_prot);
+
+
+        //cursor that will receive database data from listview click.
+        foodDbHelper = new FoodDbHelper(getApplicationContext());
+        sqLiteDatabase = foodDbHelper.getReadableDatabase();
+        cursor = foodDbHelper.getInformation(sqLiteDatabase);
+
+
+        if (cursor.moveToFirst()) {
+            do {
+                name = cursor.getString(0);
+                servings = cursor.getString(1);
+                getCarbs = cursor.getString(2);
+                fat = cursor.getString(3);
+                protein = cursor.getString(4);
+                position = cursor.getPosition();
+
+                FoodDataProvider foodDataProvider = new FoodDataProvider(name, servings, getCarbs, fat, protein, position);
+
+
+            } while (cursor.moveToNext());
+        }
+
+        Bundle bundle = getIntent().getExtras();
+
+        //set the edittext to data from listview if listview food is clicked
+        if (et_foodname.equals(null)) {
+            et_foodname.setText(bundle.getString("lv_foodname"), TextView.BufferType.EDITABLE);
+        }
+
+
 
         Button calculateDoseBtn = (Button) findViewById(R.id.btnCalculate);
         Button btn_call_emergency_contact = (Button) findViewById(R.id.btn_call_emergency_contact);
@@ -198,6 +240,7 @@ public class FoodDose extends AppCompatActivity {
         }
 
     }
+
 
 }
 

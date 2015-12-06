@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainMenu"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,7 +51,7 @@
             android:name=".SearchFood"
             android:label="@string/title_activity_search_food" />
         <activity
-            android:name=".MainMenu"
+            android:name=".SplashActivity"
             android:label="@string/title_activity_main_menu" />
         <activity
             android:name=".LogDataListActivity"
