@@ -33,9 +33,6 @@ public class FoodDbHelper extends SQLiteOpenHelper {
         Log.e("DATABASE OPERATIONS", "Food Table created...");
     }
 
-    public void getData() {
-
-    }
 
     public void addFood(String name, String servings, String carb, String fat, String protein,
                         SQLiteDatabase db) {
@@ -76,6 +73,24 @@ public class FoodDbHelper extends SQLiteOpenHelper {
                 selection, selection_args, null, null, null);
         return cursor;
     }
+
+
+    public Cursor getFoodOnList(String food_name, SQLiteDatabase sqLiteDatabase) {
+
+        String[] projections = {
+                InfoContract.NewInfo.FOOD_NAME,
+                InfoContract.NewInfo.FOOD_CARB,
+                InfoContract.NewInfo.FOOD_FAT,
+                InfoContract.NewInfo.FOOD_PROTEIN
+        };
+        String selection = InfoContract.NewInfo.FOOD_NAME + " LIKE ?";
+        String[] selection_args = {food_name};
+        Cursor cursor = sqLiteDatabase.query(InfoContract.NewInfo.FOOD_TABLE_NAME, projections,
+                selection, selection_args, null, null, null);
+        return cursor;
+
+    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

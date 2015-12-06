@@ -61,11 +61,24 @@ public class FoodDataListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> a, View v, int position, long l) {
 
 
-                Toast.makeText(getApplicationContext(), "Future Feature", Toast.LENGTH_SHORT).show();
-                //Intent mainIntent = new Intent(FoodDataListActivity.this, Servings.class);
-                //startActivity(mainIntent);
+                foodDbHelper = new FoodDbHelper(getApplicationContext());
+                sqLiteDatabase = foodDbHelper.getReadableDatabase();
+                Cursor cursor = foodDbHelper.getFood(search_name, sqLiteDatabase);
+
+                //String data = (String) a.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), position, Toast.LENGTH_SHORT).show();
+
             }
         });
+
+
+/*    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,long arg3)
+    {
+        String data=(String)arg0.getItemAtPosition(arg2);
+
+
+    }});*/
+
 
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
