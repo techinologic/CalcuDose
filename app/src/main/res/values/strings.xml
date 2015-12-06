@@ -15,6 +15,7 @@
     <string name="title_activity_logs">Logs</string>
     <string name="title_activity_medical_id">Medical ID</string>
     <string name="title_activity_food_dose">Food Dose</string>
+    <string name="title_activity__list_food_dose">Dose From Food List</string>
 
     <string name="txtvRatios">Current Settings</string>
 

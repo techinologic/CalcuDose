@@ -29,6 +29,7 @@ public class FoodDataListActivity extends AppCompatActivity {
 
     String name, servings, carbs, fat, protein;
     int position;
+    int fromWhichActivity = 1;
 
 
     @Override
@@ -69,7 +70,7 @@ public class FoodDataListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int pos, long l) {
 
-                //save these values and pass them to foodDose activity editTexts.
+                //save these values and pass them to listfoodActivity textviews.
                 cursor.moveToPosition(pos);
                 name = cursor.getString(0);
                 servings = cursor.getString(1);
@@ -80,25 +81,23 @@ public class FoodDataListActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = settings.edit();
 
-                Intent intent_foodDose = new Intent(FoodDataListActivity.this, FoodDose.class);
+                editor.putString("lv_foodname", name);
+                editor.putString("lv_foodfat", fat);
+                editor.putString("lv_foodcarbs", carbs);
+                editor.putString("lv_foodprotein", protein);
+                editor.commit();
+
+
+                Intent intent_foodDose = new Intent(FoodDataListActivity.this, ListFoodDose.class);
                 Bundle bundle = new Bundle();
 
-                bundle.putString("lv_foodname", name);
-                intent_foodDose.putExtras(bundle);
-
-                bundle.putString("lv_carbs", carbs);
-                intent_foodDose.putExtras(bundle);
-
-                bundle.putString("lv_fat", fat);
-                intent_foodDose.putExtras(bundle);
-
-                bundle.putString("lv_protein", protein);
-                intent_foodDose.putExtras(bundle);
-
+                //int tester = bundle.getInt("fromWhichActivity", 0);
 
                 Toast.makeText(getApplicationContext(), name + " " + carbs + " " + fat + " " + protein, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), bundle.getString("lv_foodname"), Toast.LENGTH_SHORT).show();
 
-                startActivity(new Intent(FoodDataListActivity.this, FoodDose.class));
+
+                startActivity(intent_foodDose);
             }
         });
 

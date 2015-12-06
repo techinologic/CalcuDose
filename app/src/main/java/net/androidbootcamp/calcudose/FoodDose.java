@@ -23,6 +23,7 @@ public class FoodDose extends AppCompatActivity {
 
     public static final String SETTINGS_PREFERENCES = "Settings";
 
+
     SQLiteDatabase sqLiteDatabase;
     FoodDbHelper foodDbHelper;
     Cursor cursor;
@@ -50,9 +51,12 @@ public class FoodDose extends AppCompatActivity {
     public String oreo_prot = "1";
     public String oreo_barcode = "044000029524";
 
-
     String name, servings, getCarbs, fat, protein;
     int position;
+
+    int fromWhichActivitiy = 0;
+    // 0=from foodDose
+    // 1= from foodDataList
 
 
 
@@ -62,6 +66,14 @@ public class FoodDose extends AppCompatActivity {
         setContentView(R.layout.activity_food_dose);
 
         final SharedPreferences settings = getSharedPreferences(SETTINGS_PREFERENCES, 0);
+
+
+        //get if created by foodDose
+        fromWhichActivitiy = settings.getInt("fromWhichActivity", fromWhichActivitiy);
+
+
+        //get if created by food added by listview
+
 
         TextView currentTarget = (TextView) findViewById(R.id.tvCurrentTarget);
         TextView currentIsf = (TextView) findViewById(R.id.tvCurrentIsf);
@@ -97,13 +109,20 @@ public class FoodDose extends AppCompatActivity {
             } while (cursor.moveToNext());
         }
 
-        Bundle bundle = getIntent().getExtras();
+        if (fromWhichActivitiy == 0) {
+            et_foodname.setText("foodDose", TextView.BufferType.EDITABLE);
 
-        //set the edittext to data from listview if listview food is clicked
-        if (et_foodname.equals(null)) {
-            et_foodname.setText(bundle.getString("lv_foodname"), TextView.BufferType.EDITABLE);
+        } else {
+            Bundle bundle = getIntent().getExtras();
+            et_foodname.setText("ListView", TextView.BufferType.EDITABLE);
+
+
+            //et_foodname.setText(bundle.getString("lv_foodname"), TextView.BufferType.EDITABLE);
+
+
+
+
         }
-
 
 
         Button calculateDoseBtn = (Button) findViewById(R.id.btnCalculate);
@@ -242,5 +261,26 @@ public class FoodDose extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        final SharedPreferences settings = getSharedPreferences(SETTINGS_PREFERENCES, 0);
+
+        fromWhichActivitiy = settings.getInt("fromWhichActivity", fromWhichActivitiy);
+
+        if (fromWhichActivitiy == 0) {
+            et_foodname.setText("foodDose", TextView.BufferType.EDITABLE);
+
+        } else {
+            Bundle bundle = getIntent().getExtras();
+            et_foodname.setText("ListView", TextView.BufferType.EDITABLE);
+
+
+            //et_foodname.setText(bundle.getString("lv_foodname"), TextView.BufferType.EDITABLE);
+
+
+        }
+
+    }
 }
 
