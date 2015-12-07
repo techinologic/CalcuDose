@@ -12,7 +12,6 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class ScannerActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button scanBtn;
     private TextView formatTxt;
     private TextView contentTxt;
 
@@ -22,7 +21,7 @@ public class ScannerActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scanner);
 
-        scanBtn = (Button) findViewById(R.id.scan_button);
+        Button scanBtn = (Button) findViewById(R.id.scan_button);
         formatTxt = (TextView) findViewById(R.id.textView);
         contentTxt = (TextView) findViewById(R.id.textView2);
 

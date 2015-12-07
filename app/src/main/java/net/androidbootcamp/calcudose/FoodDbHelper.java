@@ -10,7 +10,7 @@ import android.util.Log;
 /**
  * Created by Paolo T. inocencion on 11/8/2015.
  */
-public class FoodDbHelper extends SQLiteOpenHelper {
+class FoodDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "FOODINFO.DB";
     private static final int DATABASE_VERSION = 1;
@@ -68,9 +68,8 @@ public class FoodDbHelper extends SQLiteOpenHelper {
         };
         String selection = InfoContract.NewInfo.FOOD_NAME + " LIKE ?";
         String[] selection_args = {food_name};
-        Cursor cursor = sqLiteDatabase.query(InfoContract.NewInfo.FOOD_TABLE_NAME, projections,
+        return sqLiteDatabase.query(InfoContract.NewInfo.FOOD_TABLE_NAME, projections,
                 selection, selection_args, null, null, null);
-        return cursor;
     }
 
     @Override

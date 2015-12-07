@@ -16,12 +16,10 @@ import java.util.Date;
 
 public class FoodDoseResult extends AppCompatActivity {
 
-    double result;
-    int sugar;
-    Context context = this;
-    LogDbHelper logDbHelper;
-    SQLiteDatabase sqLiteDatabase;
-    String currentDate;
+    private double result;
+    private int sugar;
+    private final Context context = this;
+    private String currentDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,14 +55,14 @@ public class FoodDoseResult extends AppCompatActivity {
         });
     }
 
-    public void addLogEvent() {
+    private void addLogEvent() {
         String name = currentDate;
         String bg = Integer.toString(sugar);
         String dose = Double.toString(result);
         String oras = "Food Dose";
 
-        logDbHelper = new LogDbHelper(context);
-        sqLiteDatabase = logDbHelper.getWritableDatabase();
+        LogDbHelper logDbHelper = new LogDbHelper(context);
+        SQLiteDatabase sqLiteDatabase = logDbHelper.getWritableDatabase();
         logDbHelper.addLogEvent(name, bg, dose, oras, sqLiteDatabase);
         Toast.makeText(getBaseContext(), "Food Dose Log Saved", Toast.LENGTH_LONG).show();
         logDbHelper.close();

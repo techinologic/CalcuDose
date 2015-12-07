@@ -16,33 +16,20 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class AddFood extends AppCompatActivity {
 
-    EditText foodservings, foodname, foodcarb, foodfat, foodprotein;
-    Context context = this;
-    FoodDbHelper foodDbHelper;
-    SQLiteDatabase sqLiteDatabase;
+    private EditText foodservings;
+    private EditText foodname;
+    private EditText foodcarb;
+    private EditText foodfat;
+    private EditText foodprotein;
+    private final Context context = this;
+    private FoodDbHelper foodDbHelper;
+    private SQLiteDatabase sqLiteDatabase;
 
-    double result;
-    int sugar;
-    LogDbHelper logDbHelper;
-    String currentDate;
-
-    String name;
-    String servings;
-    String carb;
-    String fat;
-    String protein;
-
-    private Button scanBtn;
-    private Button btn_saveFood;
-    private TextView formatTxt;
-    private TextView contentTxt;
-
-    public String oreo_name = "Double Stuf Oreo";
-    public String oreo_servings = "1";
-    public String oreo_carb = "21";
-    public String oreo_fat = "7";
-    public String oreo_prot = "1";
-    public String oreo_barcode = "044000029524";
+    private String name;
+    private String servings;
+    private String carb;
+    private String fat;
+    private String protein;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +43,10 @@ public class AddFood extends AppCompatActivity {
         foodprotein = (EditText) findViewById(R.id.add_foodprotein);
 
         //scanner widgets
-        scanBtn = (Button) findViewById(R.id.scan_button);
+        Button scanBtn = (Button) findViewById(R.id.scan_button);
         //btnAddFood_calculateDose = (Button) findViewById(R.id.btnAddFood_calculateDose);
-        formatTxt = (TextView) findViewById(R.id.textView);
         //contentTxt = (TextView) findViewById(R.id.contenttxt);
-        btn_saveFood = (Button) findViewById(R.id.btn_saveFood);
+        Button btn_saveFood = (Button) findViewById(R.id.btn_saveFood);
         //
 
 
@@ -71,7 +57,6 @@ public class AddFood extends AppCompatActivity {
                     IntentIntegrator scanIntegrator = new IntentIntegrator(AddFood.this);
                     scanIntegrator.initiateScan();
                 }
-
             }
         });
 
@@ -79,13 +64,11 @@ public class AddFood extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addFood();
-
-
             }
         });
     }
 
-    public void addFood() {
+    private void addFood() {
         if (foodname != null && foodfat != null && foodcarb != null && foodprotein != null) {
             name = foodname.getText().toString();
             servings = foodservings.getText().toString();
@@ -109,25 +92,21 @@ public class AddFood extends AppCompatActivity {
             String scanFormat = scanningResult.getFormatName();
 
             //set foodname to edittext
+            String oreo_barcode = "044000029524";
             if (scanContent.equals(oreo_barcode)) {
+                String oreo_name = "Double Stuf Oreo";
                 foodname.setText(oreo_name, TextView.BufferType.EDITABLE);
+                String oreo_servings = "1";
                 foodservings.setText(oreo_servings, TextView.BufferType.EDITABLE);
+                String oreo_carb = "21";
                 foodcarb.setText(oreo_carb, TextView.BufferType.EDITABLE);
+                String oreo_fat = "7";
                 foodfat.setText(oreo_fat, TextView.BufferType.EDITABLE);
+                String oreo_prot = "1";
                 foodprotein.setText(oreo_prot, TextView.BufferType.EDITABLE);
 
-
-                //name = oreo_name;
-                //servings = oreo_servings;
-                //fat = oreo_fat;
-                //carb = oreo_carb;
-                //protein = oreo_prot;
-                //addFoodScanner();
             }
 
-
-            //formatTxt.setText("FORMAT: " + scanFormat);
-            //contentTxt.setText("CONTENT: " + scanContent);
         } else {
             Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT).show();
         }

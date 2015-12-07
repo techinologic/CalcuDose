@@ -10,7 +10,7 @@ import android.util.Log;
 /**
  * Created by Paolo T. inocencion on 11/15/2015.
  */
-public class LogDbHelper extends SQLiteOpenHelper{
+class LogDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "LOGINFO.DB";
     private static final int DATABASE_VERSION = 1;

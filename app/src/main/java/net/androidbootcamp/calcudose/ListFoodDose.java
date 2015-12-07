@@ -16,18 +16,17 @@ import java.util.Date;
 
 public class ListFoodDose extends AppCompatActivity {
 
-    public static final String SETTINGS_PREFERENCES = "Settings";
-    String currentDate;
+    private static final String SETTINGS_PREFERENCES = "Settings";
 
-    int bloodGlucose = -1;
-    double carbs = 0;
-    double doseResult;
-    int insulinSensitivityFactor = 35;
-    int insulinCarbRatio = 10;
-    int targetBloodSugar = 100;
-    final double ROUNDOFF = 0.5;
+    private int bloodGlucose = -1;
+    private double carbs = 0;
+    private double doseResult;
+    private int insulinSensitivityFactor = 35;
+    private int insulinCarbRatio = 10;
+    private int targetBloodSugar = 100;
+    private final double ROUNDOFF = 0.5;
 
-    EditText etxtBG;
+    private EditText etxtBG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +63,7 @@ public class ListFoodDose extends AppCompatActivity {
         currentIsf.setText(settings.getString("Isf", "35"));
         currentRatio.setText(settings.getString("IToCarbRatio", "10"));
 
-        currentDate = DateFormat.getDateTimeInstance().format(new Date());
+        String currentDate = DateFormat.getDateTimeInstance().format(new Date());
         displayDate.setText(currentDate);
 
         calculateDoseBtn.setOnClickListener(new View.OnClickListener() {

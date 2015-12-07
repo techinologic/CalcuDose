@@ -3,7 +3,7 @@ package net.androidbootcamp.calcudose;
 /**
  * Created by Paolo T. inocencion on 11/8/2015.
  */
-public class FoodDataProvider {
+class FoodDataProvider {
 
     private String name;
     private String servings;

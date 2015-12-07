@@ -3,7 +3,7 @@ package net.androidbootcamp.calcudose;
 /**
  * Created by Paolo T. inocencion on 11/15/2015.
  */
-public class LogDataProvider {
+class LogDataProvider {
 
     private String name;
     private String bg;

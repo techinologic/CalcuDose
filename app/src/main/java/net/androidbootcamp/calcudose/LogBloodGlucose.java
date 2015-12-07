@@ -16,15 +16,14 @@ import java.util.Date;
 
 public class LogBloodGlucose extends AppCompatActivity {
 
-    public static final String SETTINGS_PREFERENCES = "Settings";
+    private static final String SETTINGS_PREFERENCES = "Settings";
 
-    int bloodGlucose = -1;
-    double doseResult;
-    int insulinSensitivityFactor = 35;
-    int targetBloodSugar = 100;
-    final double ROUNDOFF = 0.5;
-    EditText etxtBG;
-    String currentDate;
+    private int bloodGlucose = -1;
+    private double doseResult;
+    private int insulinSensitivityFactor = 35;
+    private int targetBloodSugar = 100;
+    private final double ROUNDOFF = 0.5;
+    private EditText etxtBG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +48,7 @@ public class LogBloodGlucose extends AppCompatActivity {
         currentIsf.setText(settings.getString("Isf", "35"));
         currentRatio.setText(settings.getString("IToCarbRatio", "10"));
 
-        currentDate = DateFormat.getDateTimeInstance().format(new Date());
+        String currentDate = DateFormat.getDateTimeInstance().format(new Date());
         displayDate.setText(currentDate);
 
         calculateDoseBtn.setOnClickListener(new View.OnClickListener() {
@@ -73,8 +72,8 @@ public class LogBloodGlucose extends AppCompatActivity {
                         doseResult = ((double) (long) (doseResult * 20 + ROUNDOFF)) / 20;
                     }
 
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs
+                    /*SharedPreferences.Editor editor = settings.edit();
+                    editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs*/
 
                     Intent intent = new Intent(LogBloodGlucose.this, GlucoseDoseResults.class);
                     Bundle bundle = new Bundle();

@@ -19,13 +19,13 @@ import java.util.List;
 import java.util.Map;
 
 public class IntentIntegrator {
-    public static final int REQUEST_CODE = 0x0000c0de; // Only use bottom 16 bits
+    private static final int REQUEST_CODE = 0x0000c0de; // Only use bottom 16 bits
     private static final String TAG = IntentIntegrator.class.getSimpleName();
-    public static final String DEFAULT_TITLE = "Install Barcode Scanner?";
-    public static final String DEFAULT_MESSAGE =
+    private static final String DEFAULT_TITLE = "Install Barcode Scanner?";
+    private static final String DEFAULT_MESSAGE =
             "This application requires Barcode Scanner. Would you like to install it?";
-    public static final String DEFAULT_YES = "Yes";
-    public static final String DEFAULT_NO = "No";
+    private static final String DEFAULT_YES = "Yes";
+    private static final String DEFAULT_NO = "No";
     private static final String BS_PACKAGE = "com.google.zxing.client.android";
     private static final String BSPLUS_PACKAGE = "com.srowen.bs.android";
     // supported barcode formats
@@ -35,9 +35,9 @@ public class IntentIntegrator {
                     "ITF", "RSS_14", "RSS_EXPANDED");
     public static final Collection<String> QR_CODE_TYPES = Collections.singleton("QR_CODE");
     public static final Collection<String> DATA_MATRIX_TYPES = Collections.singleton("DATA_MATRIX");
-    public static final Collection<String> ALL_CODE_TYPES = null;
+    private static final Collection<String> ALL_CODE_TYPES = null;
     public static final List<String> TARGET_BARCODE_SCANNER_ONLY = Collections.singletonList(BS_PACKAGE);
-    public static final List<String> TARGET_ALL_KNOWN = list(
+    private static final List<String> TARGET_ALL_KNOWN = list(
             BS_PACKAGE, // Barcode Scanner
             BSPLUS_PACKAGE, // Barcode Scanner+
             BSPLUS_PACKAGE + ".simple" // Barcode Scanner+ Simple
@@ -136,14 +136,14 @@ public class IntentIntegrator {
         return initiateScan(ALL_CODE_TYPES);
     }
 
-    public final AlertDialog initiateScan(Collection<String> desiredBarcodeFormats) {
+    private AlertDialog initiateScan(Collection<String> desiredBarcodeFormats) {
         Intent intentScan = new Intent(BS_PACKAGE + ".SCAN");
         intentScan.addCategory(Intent.CATEGORY_DEFAULT);
 // check which types of codes to scan for
-        if (desiredBarcodeFormats != null) {
+        if (IntentIntegrator.ALL_CODE_TYPES != null) {
 // set the desired barcode types
             StringBuilder joinedByComma = new StringBuilder();
-            for (String format : desiredBarcodeFormats) {
+            for (String format : IntentIntegrator.ALL_CODE_TYPES) {
                 if (joinedByComma.length() > 0) {
                     joinedByComma.append(',');
                 }
@@ -163,7 +163,7 @@ public class IntentIntegrator {
         return null;
     }
 
-    protected void startActivityForResult(Intent intent, int code) {
+    private void startActivityForResult(Intent intent, int code) {
         activity.startActivityForResult(intent, code);
     }
 
@@ -235,6 +235,7 @@ public class IntentIntegrator {
         }
         intent.setPackage(targetAppPackage);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //noinspection deprecation
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         attachMoreExtras(intent);
         activity.startActivity(intent);

@@ -22,43 +22,27 @@ import java.util.Date;
 
 public class FoodDose extends AppCompatActivity {
 
-    public static final String SETTINGS_PREFERENCES = "Settings";
-    final double ROUNDOFF = 0.5;
-    public String oreo_name = "Double Stuf Oreo";
+    private static final String SETTINGS_PREFERENCES = "Settings";
+    private final double ROUNDOFF = 0.5;
     public String oreo_servings = "1";
-    public String oreo_carb = "21";
-    public String oreo_fat = "7";
-    public String oreo_prot = "1";
-    public String oreo_barcode = "044000029524";
-    SQLiteDatabase sqLiteDatabase;
-    FoodDbHelper foodDbHelper;
-    Cursor cursor;
-    int bloodGlucose = -1;
-    double carbs = 0;
-    double doseResult;
-    int insulinSensitivityFactor = 35;
-    int insulinCarbRatio = 10;
-    int targetBloodSugar = 100;
-    EditText etxtBG;
-    EditText et_foodname;
-    EditText et_fat;
-    EditText et_carb;
-    EditText et_prot;
-    String currentDate;
-    Context context = this;
-    String add_name;
+    private SQLiteDatabase sqLiteDatabase;
+    private FoodDbHelper foodDbHelper;
+    private int bloodGlucose = -1;
+    private double carbs = 0;
+    private double doseResult;
+    private int insulinSensitivityFactor = 35;
+    private int insulinCarbRatio = 10;
+    private int targetBloodSugar = 100;
+    private EditText etxtBG;
+    private EditText et_foodname;
+    private EditText et_fat;
+    private EditText et_carb;
+    private EditText et_prot;
+    private final Context context = this;
     String add_servings;
-    String add_carb;
-    String add_fat;
-    String add_protein;
 
 
-    String name, servings, getCarbs, fat, protein;
-    int position;
-
-    int fromWhichActivitiy = 0;
-    // 0=from foodDose
-    // 1= from foodDataList
+    private String servings;
 
 
     @Override
@@ -82,16 +66,16 @@ public class FoodDose extends AppCompatActivity {
         //cursor that will receive database data from listview click.
         foodDbHelper = new FoodDbHelper(getApplicationContext());
         sqLiteDatabase = foodDbHelper.getReadableDatabase();
-        cursor = foodDbHelper.getInformation(sqLiteDatabase);
+        Cursor cursor = foodDbHelper.getInformation(sqLiteDatabase);
 
         if (cursor.moveToFirst()) {
             do {
-                name = cursor.getString(0);
+                String name = cursor.getString(0);
                 servings = cursor.getString(1);
-                getCarbs = cursor.getString(2);
-                fat = cursor.getString(3);
-                protein = cursor.getString(4);
-                position = cursor.getPosition();
+                String getCarbs = cursor.getString(2);
+                String fat = cursor.getString(3);
+                String protein = cursor.getString(4);
+                int position = cursor.getPosition();
 
             } while (cursor.moveToNext());
         }
@@ -108,7 +92,7 @@ public class FoodDose extends AppCompatActivity {
         currentIsf.setText(settings.getString("Isf", "35"));
         currentRatio.setText(settings.getString("IToCarbRatio", "10"));
 
-        currentDate = DateFormat.getDateTimeInstance().format(new Date());
+        String currentDate = DateFormat.getDateTimeInstance().format(new Date());
         displayDate.setText(currentDate);
 
         //Calculate dose button onclick run code
@@ -251,11 +235,16 @@ public class FoodDose extends AppCompatActivity {
             String scanFormat = scanningResult.getFormatName();
 
             //set foodname to edittext
+            String oreo_barcode = "044000029524";
             if (scanContent.equals(oreo_barcode)) {
+                String oreo_name = "Double Stuf Oreo";
                 et_foodname.setText(oreo_name, TextView.BufferType.EDITABLE);
                 //foodservings.setText(oreo_servings, TextView.BufferType.EDITABLE);
+                String oreo_carb = "21";
                 et_carb.setText(oreo_carb, TextView.BufferType.EDITABLE);
+                String oreo_fat = "7";
                 et_fat.setText(oreo_fat, TextView.BufferType.EDITABLE);
+                String oreo_prot = "1";
                 et_prot.setText(oreo_prot, TextView.BufferType.EDITABLE);
             }
 
@@ -266,12 +255,12 @@ public class FoodDose extends AppCompatActivity {
 
     }
 
-    public void addFoodToList() {
-        add_name = et_foodname.getText().toString();
+    private void addFoodToList() {
+        String add_name = et_foodname.getText().toString();
         //servings = foodservings.getText().toString();
-        add_carb = et_carb.getText().toString();
-        add_fat = et_fat.getText().toString();
-        add_protein = et_prot.getText().toString();
+        String add_carb = et_carb.getText().toString();
+        String add_fat = et_fat.getText().toString();
+        String add_protein = et_prot.getText().toString();
 
         foodDbHelper = new FoodDbHelper(context);
         sqLiteDatabase = foodDbHelper.getWritableDatabase();

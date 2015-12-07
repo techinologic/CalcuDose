@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 public class SearchFood extends AppCompatActivity {
 
-    TextView display_name, display_carbs, display_fat, display_protein;
-    EditText Search_name;
-    FoodDbHelper foodDbHelper;
-    SQLiteDatabase sqLiteDatabase;
-    String search_name;
+    private TextView display_name;
+    private TextView display_carbs;
+    private TextView display_fat;
+    private TextView display_protein;
+    private EditText Search_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +46,10 @@ public class SearchFood extends AppCompatActivity {
 
     public void searchFood(View view) {
 
-        search_name = Search_name.getText().toString();
+        String search_name = Search_name.getText().toString();
 
-        foodDbHelper = new FoodDbHelper(getApplicationContext());
-        sqLiteDatabase = foodDbHelper.getReadableDatabase();
+        FoodDbHelper foodDbHelper = new FoodDbHelper(getApplicationContext());
+        SQLiteDatabase sqLiteDatabase = foodDbHelper.getReadableDatabase();
         Cursor cursor = foodDbHelper.getFood(search_name, sqLiteDatabase);
 
         if (cursor.moveToFirst()) {

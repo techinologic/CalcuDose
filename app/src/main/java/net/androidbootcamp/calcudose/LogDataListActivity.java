@@ -10,11 +10,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 public class LogDataListActivity extends AppCompatActivity {
-    ListView listView;
-    SQLiteDatabase sqLiteDatabase;
-    LogDbHelper logDbHelper;
-    Cursor cursor;
-    LogListDataAdapter logListDataAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +19,12 @@ public class LogDataListActivity extends AppCompatActivity {
         Button btnLogs_main_menu = (Button)findViewById(R.id.btn_logs_main_menu);
         Button btn_addnew = (Button) findViewById(R.id.btn_addnew);
 
-        listView = (ListView) findViewById(R.id.log_list_view);
-        logListDataAdapter = new LogListDataAdapter(getApplicationContext(), R.layout.log_row_layout);
+        ListView listView = (ListView) findViewById(R.id.log_list_view);
+        LogListDataAdapter logListDataAdapter = new LogListDataAdapter(getApplicationContext());
         listView.setAdapter(logListDataAdapter);
-        logDbHelper = new LogDbHelper(getApplicationContext());
-        sqLiteDatabase = logDbHelper.getReadableDatabase(); // read data from db
-        cursor = logDbHelper.getLogEventInformation(sqLiteDatabase); //get information from db
+        LogDbHelper logDbHelper = new LogDbHelper(getApplicationContext());
+        SQLiteDatabase sqLiteDatabase = logDbHelper.getReadableDatabase();
+        Cursor cursor = logDbHelper.getLogEventInformation(sqLiteDatabase);
         if(cursor.moveToFirst()){
             do{
                 String name, bg, dose, oras, date;

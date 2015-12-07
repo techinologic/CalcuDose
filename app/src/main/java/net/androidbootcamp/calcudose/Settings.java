@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
-    public static final String SETTINGS_PREFERENCES = "Settings";
+    private static final String SETTINGS_PREFERENCES = "Settings";
     public static final String Target = "targetKey";
     public static final String Isf = "IsfKey";
     public static final String IToCarbRatio = "ratioKey";

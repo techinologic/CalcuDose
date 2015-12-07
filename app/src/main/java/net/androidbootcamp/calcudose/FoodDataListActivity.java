@@ -13,15 +13,15 @@ import android.widget.ListView;
 
 public class FoodDataListActivity extends AppCompatActivity {
 
-    public static final String SETTINGS_PREFERENCES = "Settings";
+    private static final String SETTINGS_PREFERENCES = "Settings";
 
-    ListView listView;
-    SQLiteDatabase sqLiteDatabase;
-    FoodDbHelper foodDbHelper;
-    Cursor cursor;
-    FoodListDataAdapter foodListDataAdapter;
+    private Cursor cursor;
 
-    String name, servings, carbs, fat, protein;
+    private String name;
+    private String servings;
+    private String carbs;
+    private String fat;
+    private String protein;
     int position;
 
     @Override
@@ -31,12 +31,12 @@ public class FoodDataListActivity extends AppCompatActivity {
 
         final SharedPreferences settings = getSharedPreferences(SETTINGS_PREFERENCES, 0);
 
-        listView = (ListView) findViewById(R.id.food_list_view);
-        foodListDataAdapter = new FoodListDataAdapter(getApplicationContext(), R.layout.food_row_layout);
+        ListView listView = (ListView) findViewById(R.id.food_list_view);
+        FoodListDataAdapter foodListDataAdapter = new FoodListDataAdapter(getApplicationContext());
         listView.setAdapter(foodListDataAdapter);
 
-        foodDbHelper = new FoodDbHelper(getApplicationContext());
-        sqLiteDatabase = foodDbHelper.getReadableDatabase();
+        FoodDbHelper foodDbHelper = new FoodDbHelper(getApplicationContext());
+        SQLiteDatabase sqLiteDatabase = foodDbHelper.getReadableDatabase();
         cursor = foodDbHelper.getInformation(sqLiteDatabase);
 
         Button btn_search = (Button) findViewById(R.id.btn_list_search);

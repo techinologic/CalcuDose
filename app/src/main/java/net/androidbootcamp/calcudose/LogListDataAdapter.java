@@ -13,11 +13,11 @@ import java.util.List;
 /**
  * Created by Paolo T. inocencion on 11/15/2015.
  */
-public class LogListDataAdapter extends ArrayAdapter {
-    List list = new ArrayList<>();
+class LogListDataAdapter extends ArrayAdapter {
+    private final List list = new ArrayList<>();
 
-    public LogListDataAdapter(Context context, int resource) {
-        super(context, resource);
+    public LogListDataAdapter(Context context) {
+        super(context, R.layout.log_row_layout);
     }
 
     static class LogLayoutHandler{

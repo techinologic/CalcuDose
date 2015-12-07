@@ -32,9 +32,6 @@
             android:name=".AddFood"
             android:label="@string/title_activity_add_food" />
         <activity
-            android:name=".Servings"
-            android:label="@string/title_activity_servings" />
-        <activity
             android:name=".FoodDoseResult"
             android:label="@string/title_activity_dose_results" />
         <activity

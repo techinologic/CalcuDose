@@ -13,12 +13,12 @@ import java.util.List;
 /**
  * Created by Paolo T. inocencion on 11/8/2015.
  */
-public class FoodListDataAdapter extends ArrayAdapter {
+class FoodListDataAdapter extends ArrayAdapter {
 
-    List list = new ArrayList();
+    private final List list = new ArrayList();
 
-    public FoodListDataAdapter(Context context, int resource) {
-        super(context, resource);
+    public FoodListDataAdapter(Context context) {
+        super(context, R.layout.food_row_layout);
     }
 
     @Override
