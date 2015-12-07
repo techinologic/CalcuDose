@@ -22,7 +22,6 @@ public class FoodDataListActivity extends AppCompatActivity {
     private String carbs;
     private String fat;
     private String protein;
-    int position;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
