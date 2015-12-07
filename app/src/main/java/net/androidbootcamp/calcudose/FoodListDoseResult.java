@@ -20,6 +20,7 @@ public class FoodListDoseResult extends AppCompatActivity {
     private int sugar;
     private final Context context = this;
     private String currentDate;
+    public String resultInDouble;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class FoodListDoseResult extends AppCompatActivity {
         DecimalFormat units = new DecimalFormat("###.##");
 
         txtvBG.setText("Recommended dose for " + sugar + " mg/dL blood glucose level is ");
+        resultInDouble = units.format(result);
+
         txtvResults.setText(units.format(result));
         txtvTarget.setText("units of insulin to be on target blood glucose of " + target + " mg/dL.");
 
@@ -58,7 +61,7 @@ public class FoodListDoseResult extends AppCompatActivity {
     private void addLogEvent() {
         String name = currentDate;
         String bg = Integer.toString(sugar);
-        String dose = Double.toString(result);
+        String dose = resultInDouble;
         String oras = "Food Dose: List";
 
         LogDbHelper logDbHelper = new LogDbHelper(context);
