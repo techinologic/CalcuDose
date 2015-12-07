@@ -32,9 +32,14 @@ public class FoodListDataAdapter extends ArrayAdapter {
         return list.size();
     }
 
-    @Override
+    /*@Override
     public Object getItem(int position) {
         return list.get(position);
+    }*/
+
+    @Override
+    public Object getItem(int position) {
+        return list.get(getCount() - position - 1);
     }
 
     @Override

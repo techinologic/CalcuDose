@@ -33,7 +33,6 @@ public class FoodDbHelper extends SQLiteOpenHelper {
         Log.e("DATABASE OPERATIONS", "Food Table created...");
     }
 
-
     public void addFood(String name, String servings, String carb, String fat, String protein,
                         SQLiteDatabase db) {
         ContentValues contentValues = new ContentValues();
@@ -73,7 +72,6 @@ public class FoodDbHelper extends SQLiteOpenHelper {
                 selection, selection_args, null, null, null);
         return cursor;
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

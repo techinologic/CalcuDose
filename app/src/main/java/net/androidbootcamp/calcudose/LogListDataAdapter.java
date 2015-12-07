@@ -37,7 +37,7 @@ public class LogListDataAdapter extends ArrayAdapter {
 
     @Override
     public Object getItem(int position) {
-        return list.get(position);
+        return list.get(getCount() - position - 1);
     }
 
     @Override

@@ -10,12 +10,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class FoodDataListActivity extends AppCompatActivity {
 
     public static final String SETTINGS_PREFERENCES = "Settings";
-
 
     ListView listView;
     SQLiteDatabase sqLiteDatabase;
@@ -23,14 +21,8 @@ public class FoodDataListActivity extends AppCompatActivity {
     Cursor cursor;
     FoodListDataAdapter foodListDataAdapter;
 
-    String search_name;
-    String display_name;
-
-
     String name, servings, carbs, fat, protein;
     int position;
-    int fromWhichActivity = 1;
-
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -38,7 +30,6 @@ public class FoodDataListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_data_list);
 
         final SharedPreferences settings = getSharedPreferences(SETTINGS_PREFERENCES, 0);
-
 
         listView = (ListView) findViewById(R.id.food_list_view);
         foodListDataAdapter = new FoodListDataAdapter(getApplicationContext(), R.layout.food_row_layout);
@@ -59,7 +50,7 @@ public class FoodDataListActivity extends AppCompatActivity {
                 fat = cursor.getString(3);
                 protein = cursor.getString(4);
 
-                FoodDataProvider foodDataProvider = new FoodDataProvider(name, servings, carbs, fat, protein, position);
+                FoodDataProvider foodDataProvider = new FoodDataProvider(name, servings, carbs, fat, protein);
 
                 foodListDataAdapter.add(foodDataProvider); //this will pass each row of data in adapter
 
@@ -70,14 +61,13 @@ public class FoodDataListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int pos, long l) {
 
-                //save these values and pass them to listfoodActivity textviews.
-                cursor.moveToPosition(pos);
+                //retrieve listview data onclick and set to textviews.
+                cursor.moveToPosition(a.getCount() - pos - 1);
                 name = cursor.getString(0);
                 servings = cursor.getString(1);
                 carbs = cursor.getString(2);
                 fat = cursor.getString(3);
                 protein = cursor.getString(4);
-                position = pos;
 
                 SharedPreferences.Editor editor = settings.edit();
 
@@ -87,28 +77,20 @@ public class FoodDataListActivity extends AppCompatActivity {
                 editor.putString("lv_foodprotein", protein);
                 editor.commit();
 
-
                 Intent intent_foodDose = new Intent(FoodDataListActivity.this, ListFoodDose.class);
-                Bundle bundle = new Bundle();
-
-                //int tester = bundle.getInt("fromWhichActivity", 0);
-
-                Toast.makeText(getApplicationContext(), name + " " + carbs + " " + fat + " " + protein, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), bundle.getString("lv_foodname"), Toast.LENGTH_SHORT).show();
-
 
                 startActivity(intent_foodDose);
             }
         });
 
-
+        //search food button
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FoodDataListActivity.this, SearchFood.class));
             }
         });
-
+        //add new food button
         btn_addnew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

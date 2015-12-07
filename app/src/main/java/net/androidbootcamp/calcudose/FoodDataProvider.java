@@ -10,19 +10,15 @@ public class FoodDataProvider {
     private String carbs;
     private String fat;
     private String protein;
-    private int position;
 
 
-    public FoodDataProvider(String name, String servings, String carbs, String fat, String protein, int position) {
+    public FoodDataProvider(String name, String servings, String carbs, String fat, String protein) {
         this.name = name;
         this.servings = servings;
         this.carbs = carbs;
         this.fat = fat;
         this.protein = protein;
-        this.position = position;
     }
-
-
 
     public String getName() {
         return name;

@@ -1,5 +1,6 @@
 package net.androidbootcamp.calcudose;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -22,34 +23,35 @@ import java.util.Date;
 public class FoodDose extends AppCompatActivity {
 
     public static final String SETTINGS_PREFERENCES = "Settings";
-
-
-    SQLiteDatabase sqLiteDatabase;
-    FoodDbHelper foodDbHelper;
-    Cursor cursor;
-
-    int bloodGlucose = -1;
-    double carbs = 0;
-    double doseResult;
-    int insulinSensitivityFactor = 35;
-    int insulinCarbRatio = 10;
-    int targetBloodSugar = 100;
     final double ROUNDOFF = 0.5;
-
-
-    EditText etxtBG;
-    EditText et_foodname;
-    EditText et_fat;
-    EditText et_carb;
-    EditText et_prot;
-    String currentDate;
-
     public String oreo_name = "Double Stuf Oreo";
     public String oreo_servings = "1";
     public String oreo_carb = "21";
     public String oreo_fat = "7";
     public String oreo_prot = "1";
     public String oreo_barcode = "044000029524";
+    SQLiteDatabase sqLiteDatabase;
+    FoodDbHelper foodDbHelper;
+    Cursor cursor;
+    int bloodGlucose = -1;
+    double carbs = 0;
+    double doseResult;
+    int insulinSensitivityFactor = 35;
+    int insulinCarbRatio = 10;
+    int targetBloodSugar = 100;
+    EditText etxtBG;
+    EditText et_foodname;
+    EditText et_fat;
+    EditText et_carb;
+    EditText et_prot;
+    String currentDate;
+    Context context = this;
+    String add_name;
+    String add_servings;
+    String add_carb;
+    String add_fat;
+    String add_protein;
+
 
     String name, servings, getCarbs, fat, protein;
     int position;
@@ -59,7 +61,6 @@ public class FoodDose extends AppCompatActivity {
     // 1= from foodDataList
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,19 +68,10 @@ public class FoodDose extends AppCompatActivity {
 
         final SharedPreferences settings = getSharedPreferences(SETTINGS_PREFERENCES, 0);
 
-
-        //get if created by foodDose
-        fromWhichActivitiy = settings.getInt("fromWhichActivity", fromWhichActivitiy);
-
-
-        //get if created by food added by listview
-
-
         TextView currentTarget = (TextView) findViewById(R.id.tvCurrentTarget);
         TextView currentIsf = (TextView) findViewById(R.id.tvCurrentIsf);
         TextView currentRatio = (TextView) findViewById(R.id.tvCurrentRatio);
         TextView displayDate = (TextView) findViewById(R.id.displayDate);
-
 
         etxtBG = (EditText) findViewById(R.id.etxtBG); //enter blood glucose
         et_foodname = (EditText) findViewById(R.id.et_name);
@@ -87,12 +79,10 @@ public class FoodDose extends AppCompatActivity {
         et_carb = (EditText) findViewById(R.id.et_carbs);
         et_prot = (EditText) findViewById(R.id.et_prot);
 
-
         //cursor that will receive database data from listview click.
         foodDbHelper = new FoodDbHelper(getApplicationContext());
         sqLiteDatabase = foodDbHelper.getReadableDatabase();
         cursor = foodDbHelper.getInformation(sqLiteDatabase);
-
 
         if (cursor.moveToFirst()) {
             do {
@@ -103,27 +93,8 @@ public class FoodDose extends AppCompatActivity {
                 protein = cursor.getString(4);
                 position = cursor.getPosition();
 
-                FoodDataProvider foodDataProvider = new FoodDataProvider(name, servings, getCarbs, fat, protein, position);
-
-
             } while (cursor.moveToNext());
         }
-
-        if (fromWhichActivitiy == 0) {
-            et_foodname.setText("foodDose", TextView.BufferType.EDITABLE);
-
-        } else {
-            Bundle bundle = getIntent().getExtras();
-            et_foodname.setText("ListView", TextView.BufferType.EDITABLE);
-
-
-            //et_foodname.setText(bundle.getString("lv_foodname"), TextView.BufferType.EDITABLE);
-
-
-
-
-        }
-
 
         Button calculateDoseBtn = (Button) findViewById(R.id.btnCalculate);
         Button btn_call_emergency_contact = (Button) findViewById(R.id.btn_call_emergency_contact);
@@ -140,47 +111,92 @@ public class FoodDose extends AppCompatActivity {
         currentDate = DateFormat.getDateTimeInstance().format(new Date());
         displayDate.setText(currentDate);
 
+        //Calculate dose button onclick run code
         calculateDoseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                //|| (et_fat != null) || (et_carb != null) || (et_prot != null)) {
                 targetBloodSugar = Integer.parseInt(settings.getString("Target", "100"));
                 insulinSensitivityFactor = Integer.parseInt(settings.getString("Isf", "35"));
                 insulinCarbRatio = Integer.parseInt(settings.getString("IToCarbRatio", "10"));
 
-
-                carbs = Double.parseDouble(et_carb.getText().toString());
-
-                if (etxtBG.getText().toString().equals(null) || etxtBG.getText().toString().equals("")) {
-                    Toast.makeText(FoodDose.this, "Please enter a valid blood glucose value",
-                            Toast.LENGTH_LONG).show();
+                if (et_carb.getText().toString().equals("")) {
+                    carbs = 0;
                 } else {
-                    bloodGlucose = Integer.parseInt(etxtBG.getText().toString());
-                    doseResult = Double.parseDouble(etxtBG.getText().toString());
-                    doseResult = (doseResult - targetBloodSugar) / insulinSensitivityFactor;
+                    carbs = Double.parseDouble(et_carb.getText().toString());
+                }
 
-                    if (doseResult < 0) {
-                        doseResult = 0;
+                if (carbs != 0) {
+                    if (etxtBG.getText().toString().equals(null) || etxtBG.getText().toString().equals("")) {
+                        Toast.makeText(FoodDose.this, "Please enter a valid blood glucose value",
+                                Toast.LENGTH_LONG).show();
                     } else {
+                        bloodGlucose = Integer.parseInt(etxtBG.getText().toString());
+                        doseResult = Double.parseDouble(etxtBG.getText().toString());
+                        doseResult = (doseResult - targetBloodSugar) / insulinSensitivityFactor;
 
-                        double withCarbs = (carbs / insulinCarbRatio);
-                        doseResult = (((double) (long) (doseResult * 20 + ROUNDOFF)) / 20) + withCarbs;
+                        if (doseResult < 0) {
+                            doseResult = 0;
+                        } else {
+
+                            double withCarbs = (carbs / insulinCarbRatio);
+                            doseResult = (((double) (long) (doseResult * 20 + ROUNDOFF)) / 20) + withCarbs;
+                        }
+
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs
+
+                        Intent intent = new Intent(FoodDose.this, FoodDoseResult.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putDouble("BG", doseResult);
+                        intent.putExtras(bundle);
+
+                        bundle.putInt("sugar", bloodGlucose);
+                        intent.putExtras(bundle);
+
+                        bundle.putInt("target", targetBloodSugar);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+
+                        //add addfood method to save food to food lists
+                        addFoodToList();
                     }
+                }//if edit texts are not null...
+                else {
+                    //calculate bloodglucose only
+                    targetBloodSugar = Integer.parseInt(settings.getString("Target", "100"));
+                    insulinSensitivityFactor = Integer.parseInt(settings.getString("Isf", "35"));
 
-                    SharedPreferences.Editor editor = settings.edit();
-                    editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs
+                    if (etxtBG.getText().toString().equals(null) || etxtBG.getText().toString().equals("")) {
+                        Toast.makeText(FoodDose.this, "Please enter a valid blood glucose value",
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        bloodGlucose = Integer.parseInt(etxtBG.getText().toString());
+                        doseResult = Double.parseDouble(etxtBG.getText().toString());
+                        doseResult = (doseResult - targetBloodSugar) / insulinSensitivityFactor;
 
-                    Intent intent = new Intent(FoodDose.this, DoseResults.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putDouble("BG", doseResult);
-                    intent.putExtras(bundle);
+                        if (doseResult < 0) {
+                            doseResult = 0;
+                        } else {
+                            doseResult = ((double) (long) (doseResult * 20 + ROUNDOFF)) / 20;
+                        }
 
-                    bundle.putInt("sugar", bloodGlucose);
-                    intent.putExtras(bundle);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs
 
-                    bundle.putInt("target", targetBloodSugar);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                        Intent intent = new Intent(FoodDose.this, GlucoseDoseResults.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putDouble("BG", doseResult);
+                        intent.putExtras(bundle);
+
+                        bundle.putInt("sugar", bloodGlucose);
+                        intent.putExtras(bundle);
+
+                        bundle.putInt("target", targetBloodSugar);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -227,6 +243,7 @@ public class FoodDose extends AppCompatActivity {
     }
 
 
+    //sets the result of barcode scan and matches it to saved food codes
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanningResult != null) {
@@ -240,19 +257,8 @@ public class FoodDose extends AppCompatActivity {
                 et_carb.setText(oreo_carb, TextView.BufferType.EDITABLE);
                 et_fat.setText(oreo_fat, TextView.BufferType.EDITABLE);
                 et_prot.setText(oreo_prot, TextView.BufferType.EDITABLE);
-
-
-                //name = oreo_name;
-                //servings = oreo_servings;
-                //fat = oreo_fat;
-                //carb = oreo_carb;
-                //protein = oreo_prot;
-                //addFoodScanner();
             }
 
-
-            //formatTxt.setText("FORMAT: " + scanFormat);
-            //contentTxt.setText("CONTENT: " + scanContent);
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT);
             toast.show();
@@ -260,27 +266,19 @@ public class FoodDose extends AppCompatActivity {
 
     }
 
+    public void addFoodToList() {
+        add_name = et_foodname.getText().toString();
+        //servings = foodservings.getText().toString();
+        add_carb = et_carb.getText().toString();
+        add_fat = et_fat.getText().toString();
+        add_protein = et_prot.getText().toString();
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        final SharedPreferences settings = getSharedPreferences(SETTINGS_PREFERENCES, 0);
-
-        fromWhichActivitiy = settings.getInt("fromWhichActivity", fromWhichActivitiy);
-
-        if (fromWhichActivitiy == 0) {
-            et_foodname.setText("foodDose", TextView.BufferType.EDITABLE);
-
-        } else {
-            Bundle bundle = getIntent().getExtras();
-            et_foodname.setText("ListView", TextView.BufferType.EDITABLE);
-
-
-            //et_foodname.setText(bundle.getString("lv_foodname"), TextView.BufferType.EDITABLE);
-
-
-        }
-
+        foodDbHelper = new FoodDbHelper(context);
+        sqLiteDatabase = foodDbHelper.getWritableDatabase();
+        foodDbHelper.addFood(add_name, servings, add_carb, add_fat, add_protein, sqLiteDatabase);
+        Toast.makeText(getBaseContext(), "Food Saved", Toast.LENGTH_LONG).show();
+        foodDbHelper.close();
     }
+
 }
 

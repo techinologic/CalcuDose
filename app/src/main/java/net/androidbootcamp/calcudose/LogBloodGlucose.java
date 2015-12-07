@@ -59,7 +59,7 @@ public class LogBloodGlucose extends AppCompatActivity {
                 targetBloodSugar = Integer.parseInt(settings.getString("Target", "100"));
                 insulinSensitivityFactor = Integer.parseInt(settings.getString("Isf", "35"));
 
-                if (etxtBG.getText().toString().equals(null) || etxtBG.getText().toString().equals("")) {
+                if (etxtBG.getText().toString().equals("")) {
                     Toast.makeText(LogBloodGlucose.this, "Please enter a valid blood glucose value",
                             Toast.LENGTH_LONG).show();
                 } else {
@@ -76,7 +76,7 @@ public class LogBloodGlucose extends AppCompatActivity {
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs
 
-                    Intent intent = new Intent(LogBloodGlucose.this, DoseResults.class);
+                    Intent intent = new Intent(LogBloodGlucose.this, GlucoseDoseResults.class);
                     Bundle bundle = new Bundle();
                     bundle.putDouble("BG", doseResult);
                     intent.putExtras(bundle);

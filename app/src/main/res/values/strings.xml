@@ -15,7 +15,8 @@
     <string name="title_activity_logs">Logs</string>
     <string name="title_activity_medical_id">Medical ID</string>
     <string name="title_activity_food_dose">Food Dose</string>
-    <string name="title_activity__list_food_dose">Dose From Food List</string>
+    <string name="title_activity_list_food_dose">Dose From Food List</string>
+    <string name="title_activity_food_list_dose_result">Dose Results From Food List</string>
 
     <string name="txtvRatios">Current Settings</string>
 
@@ -34,30 +35,20 @@
     <string name="txt_settings_insulinToCarbRatio">Insulin to Carbohydrate Ratio :</string>
 
     <string name="etxtBG">Enter BG</string>
-    <string name="etxt_insulinSensitivityFactor"></string>
-    <string name="etxt_tagetBloodGlucose"></string>
-    <string name="etxt_insulinToCarbRatio"></string>
-    <string name="etxt_cv_insulinToCarbRatio"></string>
-    <string name="etxt_cv_insulinSensitivityFactor"></string>
-    <string name="txt_cv_targetBloodGlucose"></string>
+    <string name="etxt_insulinSensitivityFactor"> </string>
+    <string name="etxt_tagetBloodGlucose"> </string>
+    <string name="etxt_insulinToCarbRatio"> </string>
+    <string name="etxt_cv_insulinToCarbRatio"> </string>
+    <string name="etxt_cv_insulinSensitivityFactor"> </string>
+    <string name="txt_cv_targetBloodGlucose"> </string>
 
-    <string name="currentTarget"></string>
-    <string name="currentIsf"></string>
-    <string name="currentRatio"></string>
+    <string name="currentTarget"> </string>
+    <string name="currentIsf"> </string>
+    <string name="currentRatio"> </string>
 
-    <string name="tvCurrentTarget"></string>
-    <string name="tvCurrentIsf"></string>
-    <string name="tvCurrentRatio"></string>
-
-    <string-array name="foodList">
-        <item>Hormel Black Label Maple Bacon</item>
-        <item>Banana</item>
-        <item>Horizon Organic Whole Milk</item>
-        <item>Large Egg</item>
-        <item>Nature"'"s Own ButterBread</item>
-        <item>Medium Apple</item>
-        <item>Subway Footlong Club Sandwich</item>
-    </string-array>
+    <string name="tvCurrentTarget"> </string>
+    <string name="tvCurrentIsf"> </string>
+    <string name="tvCurrentRatio"> </string>
 
     <string name="txtv_ServingSize">Serving Size</string>
     <string name="txtv_NumberServings">Number of Servings</string>
@@ -68,10 +59,8 @@
     <string name="txtv_FoodBeingAdded">Name of food here.</string>
     <string name="txtv_currentBGservings">Current BG</string>
 
-    <string name="etxt_numberofservings"></string>
+    <string name="etxt_numberofservings"> </string>
 
     <string name="btnScan">Scan Barcode</string>
-    <string name="btnWeb">Search Web</string>
-
 
 </resources>

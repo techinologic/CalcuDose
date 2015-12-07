@@ -21,6 +21,11 @@ public class AddFood extends AppCompatActivity {
     FoodDbHelper foodDbHelper;
     SQLiteDatabase sqLiteDatabase;
 
+    double result;
+    int sugar;
+    LogDbHelper logDbHelper;
+    String currentDate;
+
     String name;
     String servings;
     String carb;
@@ -28,7 +33,7 @@ public class AddFood extends AppCompatActivity {
     String protein;
 
     private Button scanBtn;
-    private Button btnAddFood_calculateDose;
+    private Button btn_saveFood;
     private TextView formatTxt;
     private TextView contentTxt;
 
@@ -55,6 +60,8 @@ public class AddFood extends AppCompatActivity {
         //btnAddFood_calculateDose = (Button) findViewById(R.id.btnAddFood_calculateDose);
         formatTxt = (TextView) findViewById(R.id.textView);
         //contentTxt = (TextView) findViewById(R.id.contenttxt);
+        btn_saveFood = (Button) findViewById(R.id.btn_saveFood);
+        //
 
 
         scanBtn.setOnClickListener(new View.OnClickListener() {
@@ -68,19 +75,23 @@ public class AddFood extends AppCompatActivity {
             }
         });
 
+        btn_saveFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addFood();
 
 
-
+            }
+        });
     }
 
-    public void addFood(View view){
+    public void addFood() {
         if (foodname != null && foodfat != null && foodcarb != null && foodprotein != null) {
             name = foodname.getText().toString();
             servings = foodservings.getText().toString();
             carb = foodcarb.getText().toString();
             fat = foodfat.getText().toString();
             protein = foodprotein.getText().toString();
-
 
             foodDbHelper = new FoodDbHelper(context);
             sqLiteDatabase = foodDbHelper.getWritableDatabase();
@@ -118,10 +129,8 @@ public class AddFood extends AppCompatActivity {
             //formatTxt.setText("FORMAT: " + scanFormat);
             //contentTxt.setText("CONTENT: " + scanContent);
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT);
-            toast.show();
+            Toast.makeText(getApplicationContext(), "No scan data received!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public void addFoodScanner() {
@@ -132,4 +141,6 @@ public class AddFood extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "Food Saved", Toast.LENGTH_LONG).show();
         foodDbHelper.close();
     }
+
+
 }

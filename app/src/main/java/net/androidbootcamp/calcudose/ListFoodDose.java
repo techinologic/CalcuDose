@@ -53,7 +53,6 @@ public class ListFoodDose extends AppCompatActivity {
         foodcarbs.setText(settings.getString("lv_foodcarbs", "foodcarbs"));
         foodprotein.setText(settings.getString("lv_foodprotein", "foodprotein"));
 
-
         etxtBG = (EditText) findViewById(R.id.etxtBG); //enter blood glucose
 
         Button calculateDoseBtn = (Button) findViewById(R.id.btnCalculate);
@@ -99,7 +98,7 @@ public class ListFoodDose extends AppCompatActivity {
                     SharedPreferences.Editor editor = settings.edit();
                     editor.putInt("BG", bloodGlucose);  //save BG to SharedPrefs
 
-                    Intent intent = new Intent(ListFoodDose.this, DoseResults.class);
+                    Intent intent = new Intent(ListFoodDose.this, FoodListDoseResult.class);
                     Bundle bundle = new Bundle();
                     bundle.putDouble("BG", doseResult);
                     intent.putExtras(bundle);

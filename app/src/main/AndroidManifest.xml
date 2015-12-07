@@ -20,23 +20,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DoseResults"
+            android:name=".GlucoseDoseResults"
             android:label="@string/title_activity_dose_results" />
         <activity
             android:name=".LogBloodGlucose"
             android:label="@string/title_activity_view_log_blood_glucose" />
-        <activity
-            android:name=".LogFood"
-            android:label="@string/title_activity_log_food" />
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings" />
         <activity
             android:name=".AddFood"
             android:label="@string/title_activity_add_food" />
-        <activity
-            android:name=".LogFood2"
-            android:label="@string/title_activity_log_food" />
         <activity
             android:name=".Servings"
             android:label="@string/title_activity_servings" />
@@ -64,9 +58,10 @@
             android:label="@string/title_activity_food_dose" />
         <activity
             android:name=".ListFoodDose"
-            android:label="@string/title_activity__list_food_dose">
-
-        </activity>
+            android:label="@string/title_activity_list_food_dose" />
+        <activity
+            android:name=".FoodListDoseResult"
+            android:label="@string/title_activity_food_list_dose_result" />
     </application>
 
 </manifest>

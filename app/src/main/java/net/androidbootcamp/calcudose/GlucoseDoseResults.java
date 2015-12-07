@@ -14,7 +14,7 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.Date;
 
-public class FoodDoseResult extends AppCompatActivity {
+public class GlucoseDoseResults extends AppCompatActivity {
 
     double result;
     int sugar;
@@ -28,9 +28,9 @@ public class FoodDoseResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dose_results);
 
-        TextView txtvResults = (TextView) findViewById(R.id.txtvResults2);
-        TextView txtvBG = (TextView) findViewById(R.id.txtvBG2);
-        TextView txtvTarget = (TextView) findViewById(R.id.txtvTarget);
+        TextView txtvResults = (TextView)findViewById(R.id.txtvResults2);
+        TextView txtvBG = (TextView)findViewById(R.id.txtvBG2);
+        TextView txtvTarget = (TextView)findViewById(R.id.txtvTarget);
         TextView displayDate = (TextView) findViewById(R.id.displayDate);
         Button logEvent = (Button) findViewById(R.id.btnLog);
 
@@ -46,27 +46,27 @@ public class FoodDoseResult extends AppCompatActivity {
 
         txtvBG.setText("Recommended dose for " + sugar + " mg/dL blood glucose level is ");
         txtvResults.setText(units.format(result));
-        txtvTarget.setText("units of insulin to be on target blood glucose of " + target + " mg/dL.");
+        txtvTarget.setText("units of insulin to be on target blood glucose of " + target +" mg/dL.");
 
         logEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addLogEvent();
-                startActivity(new Intent(FoodDoseResult.this, LogDataListActivity.class));
+                startActivity(new Intent(GlucoseDoseResults.this, LogDataListActivity.class));
             }
         });
     }
 
-    public void addLogEvent() {
+    public void addLogEvent(){
         String name = currentDate;
         String bg = Integer.toString(sugar);
         String dose = Double.toString(result);
-        String oras = "Food Dose";
+        String oras = "Correction Dose";
 
         logDbHelper = new LogDbHelper(context);
         sqLiteDatabase = logDbHelper.getWritableDatabase();
         logDbHelper.addLogEvent(name, bg, dose, oras, sqLiteDatabase);
-        Toast.makeText(getBaseContext(), "Food Dose Log Saved", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "BG Log Saved", Toast.LENGTH_LONG).show();
         logDbHelper.close();
     }
 
